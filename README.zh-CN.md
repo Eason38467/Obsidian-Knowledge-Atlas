@@ -4,7 +4,7 @@
 
 **把 Obsidian Vault 变成一座可探索、会运转的知识星系。**
 
-[![Version](https://img.shields.io/badge/version-1.11.1-8b5cf6?style=flat-square)](releases/knowledge-atlas-1.11.1.zip)
+[![Version](https://img.shields.io/badge/version-1.11.2-8b5cf6?style=flat-square)](releases/knowledge-atlas-1.11.2.zip)
 [![Obsidian](https://img.shields.io/badge/Obsidian-1.5.0%2B-7c3aed?style=flat-square&logo=obsidian)](https://obsidian.md/)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)](LICENSE)
 [![Local only](https://img.shields.io/badge/data-local%20only-06b6d4?style=flat-square)](#隐私)
@@ -61,7 +61,7 @@ Vault                         → 恒星
 
 ### 安装打包版本
 
-1. 下载 [`knowledge-atlas-1.11.1.zip`](releases/knowledge-atlas-1.11.1.zip)。
+1. 下载 [`knowledge-atlas-1.11.2.zip`](releases/knowledge-atlas-1.11.2.zip)。
 2. 解压后会得到 `knowledge-atlas` 文件夹。
 3. 将该文件夹复制到 Vault：
 

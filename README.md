@@ -4,7 +4,7 @@
 
 **Turn your Obsidian vault into a living, interactive knowledge galaxy.**
 
-[![Version](https://img.shields.io/badge/version-1.11.1-8b5cf6?style=flat-square)](releases/knowledge-atlas-1.11.1.zip)
+[![Version](https://img.shields.io/badge/version-1.11.2-8b5cf6?style=flat-square)](releases/knowledge-atlas-1.11.2.zip)
 [![Obsidian](https://img.shields.io/badge/Obsidian-1.5.0%2B-7c3aed?style=flat-square&logo=obsidian)](https://obsidian.md/)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)](LICENSE)
 [![Local only](https://img.shields.io/badge/data-local%20only-06b6d4?style=flat-square)](#privacy)
@@ -61,7 +61,7 @@ The overview intentionally stops at the second folder level so a large vault rem
 
 ### Install the packaged version
 
-1. Download [`knowledge-atlas-1.11.1.zip`](releases/knowledge-atlas-1.11.1.zip).
+1. Download [`knowledge-atlas-1.11.2.zip`](releases/knowledge-atlas-1.11.2.zip).
 2. Extract it. The archive contains a folder named `knowledge-atlas`.
 3. Copy that folder into your vault:
 

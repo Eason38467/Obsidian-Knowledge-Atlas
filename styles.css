@@ -14,7 +14,7 @@
   box-sizing: border-box;
 }
 
-.kap-root {
+.knowledge-atlas-plugin-view .kap-root {
   --kap-accent: #5b8cff;
   --kap-panel: rgba(13, 18, 42, .8);
   --kap-line: rgba(154, 173, 255, .16);
@@ -30,7 +30,7 @@
     linear-gradient(145deg, #07091a 0%, #090d22 48%, #080a18 100%);
 }
 
-.kap-root::after {
+.knowledge-atlas-plugin-view .kap-root::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -41,12 +41,12 @@
   pointer-events: none;
 }
 
-.kap-root > * {
+.knowledge-atlas-plugin-view .kap-root > * {
   position: relative;
   z-index: 1;
 }
 
-.kap-header {
+.knowledge-atlas-plugin-view .kap-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
@@ -55,29 +55,29 @@
   margin: 0 auto 18px;
 }
 
-.kap-kicker,
-.kap-panel-kicker {
+.knowledge-atlas-plugin-view .kap-kicker,
+.knowledge-atlas-plugin-view .kap-panel-kicker {
   color: var(--kap-accent);
   font: 700 10px "SFMono-Regular", Consolas, monospace;
   letter-spacing: .17em;
   text-transform: uppercase;
 }
 
-.kap-title {
+.knowledge-atlas-plugin-view .kap-title {
   margin: 7px 0 0;
   color: #fff;
   font: 750 clamp(32px, 4vw, 56px)/1 "Avenir Next", "SF Pro Display", sans-serif;
   letter-spacing: -.045em;
 }
 
-.kap-subtitle {
+.knowledge-atlas-plugin-view .kap-subtitle {
   max-width: 700px;
   margin: 10px 0 0;
   color: var(--kap-muted);
   font-size: 13px;
 }
 
-.kap-stats {
+.knowledge-atlas-plugin-view .kap-stats {
   display: grid;
   grid-template-columns: repeat(3, auto);
   gap: 16px;
@@ -88,22 +88,22 @@
   backdrop-filter: blur(14px);
 }
 
-.kap-stat {
+.knowledge-atlas-plugin-view .kap-stat {
   min-width: 68px;
 }
 
-.kap-stat-value,
-.kap-stat-label {
+.knowledge-atlas-plugin-view .kap-stat-value,
+.knowledge-atlas-plugin-view .kap-stat-label {
   display: block;
 }
 
-.kap-stat-value {
+.knowledge-atlas-plugin-view .kap-stat-value {
   color: #fff;
   font: 750 20px "Avenir Next", sans-serif;
   font-variant-numeric: tabular-nums;
 }
 
-.kap-stat-label {
+.knowledge-atlas-plugin-view .kap-stat-label {
   margin-top: 2px;
   color: var(--kap-muted);
   font: 9px "SFMono-Regular", monospace;
@@ -111,49 +111,49 @@
   text-transform: uppercase;
 }
 
-.kap-toolbar,
-.kap-domain-rail,
-.kap-body {
+.knowledge-atlas-plugin-view .kap-toolbar,
+.knowledge-atlas-plugin-view .kap-domain-rail,
+.knowledge-atlas-plugin-view .kap-body {
   width: min(100%, 1500px);
   margin-right: auto;
   margin-left: auto;
 }
 
-.kap-toolbar {
+.knowledge-atlas-plugin-view .kap-toolbar {
   display: grid;
   grid-template-columns: minmax(250px, 1fr) auto;
   gap: 12px;
   align-items: center;
 }
 
-.kap-search-wrap {
+.knowledge-atlas-plugin-view .kap-search-wrap {
   position: relative;
 }
 
-.kap-search {
-  width: 100% !important;
-  height: 42px !important;
-  padding: 0 16px 0 46px !important;
-  border: 1px solid var(--kap-line) !important;
-  border-radius: 13px !important;
+.knowledge-atlas-plugin-view .kap-search {
+  width: 100%;
+  height: 42px;
+  padding: 0 16px 0 46px;
+  border: 1px solid var(--kap-line);
+  border-radius: 13px;
   appearance: none;
   outline: none;
-  background: rgba(8, 12, 30, .78) !important;
-  box-shadow: inset 0 1px rgba(255,255,255,.03) !important;
-  color: #f2f5ff !important;
+  background: rgba(8, 12, 30, .78);
+  box-shadow: inset 0 1px rgba(255,255,255,.03);
+  color: #f2f5ff;
 }
 
-.kap-search::placeholder {
-  color: #737fa8 !important;
+.knowledge-atlas-plugin-view .kap-search::placeholder {
+  color: #737fa8;
   opacity: 1;
 }
 
-.kap-search:focus {
-  border-color: color-mix(in srgb, var(--kap-accent) 65%, transparent) !important;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--kap-accent) 14%, transparent) !important;
+.knowledge-atlas-plugin-view .kap-search:focus {
+  border-color: color-mix(in srgb, var(--kap-accent) 65%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--kap-accent) 14%, transparent);
 }
 
-.kap-search-icon {
+.knowledge-atlas-plugin-view .kap-search-icon {
   position: absolute;
   z-index: 2;
   top: 50%;
@@ -167,7 +167,7 @@
   pointer-events: none;
 }
 
-.kap-search-icon::after {
+.knowledge-atlas-plugin-view .kap-search-icon::after {
   content: "";
   position: absolute;
   right: -5px;
@@ -179,7 +179,7 @@
   transform: rotate(45deg);
 }
 
-.kap-search-results {
+.knowledge-atlas-plugin-view .kap-search-results {
   position: absolute;
   z-index: 30;
   top: calc(100% + 7px);
@@ -195,44 +195,44 @@
   box-shadow: 0 22px 60px rgba(0,0,0,.5);
 }
 
-.kap-search-results.is-open {
+.knowledge-atlas-plugin-view .kap-search-results.is-open {
   display: grid;
   gap: 3px;
 }
 
-.kap-result,
-.kap-recent {
-  width: 100% !important;
-  min-width: 0 !important;
-  margin: 0 !important;
+.knowledge-atlas-plugin-view .kap-result,
+.knowledge-atlas-plugin-view .kap-recent {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
   appearance: none;
-  box-shadow: none !important;
-  color: inherit !important;
+  box-shadow: none;
+  color: inherit;
   text-align: left;
   cursor: pointer;
 }
 
-.kap-result {
-  display: grid !important;
+.knowledge-atlas-plugin-view .kap-result {
+  display: grid;
   grid-template-columns: 8px minmax(0, 1fr) auto;
   align-items: center;
   gap: 10px;
-  min-height: 0 !important;
-  padding: 9px !important;
-  border: 0 !important;
-  border-radius: 9px !important;
-  background: transparent !important;
+  min-height: 0;
+  padding: 9px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
 }
 
-.kap-result:hover,
-.kap-result:focus-visible,
-.kap-recent:hover,
-.kap-recent:focus-visible {
-  background: rgba(128,148,255,.09) !important;
+.knowledge-atlas-plugin-view .kap-result:hover,
+.knowledge-atlas-plugin-view .kap-result:focus-visible,
+.knowledge-atlas-plugin-view .kap-recent:hover,
+.knowledge-atlas-plugin-view .kap-recent:focus-visible {
+  background: rgba(128,148,255,.09);
   outline: none;
 }
 
-.kap-result-dot {
+.knowledge-atlas-plugin-view .kap-result-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -240,18 +240,18 @@
   box-shadow: 0 0 10px var(--kap-result-color);
 }
 
-.kap-result-copy,
-.kap-recent-copy {
+.knowledge-atlas-plugin-view .kap-result-copy,
+.knowledge-atlas-plugin-view .kap-recent-copy {
   display: grid;
   min-width: 0;
   gap: 2px;
   overflow: hidden;
 }
 
-.kap-result-title,
-.kap-result-path,
-.kap-recent-title,
-.kap-recent-path {
+.knowledge-atlas-plugin-view .kap-result-title,
+.knowledge-atlas-plugin-view .kap-result-path,
+.knowledge-atlas-plugin-view .kap-recent-title,
+.knowledge-atlas-plugin-view .kap-recent-path {
   display: block;
   min-width: 0;
   overflow: hidden;
@@ -259,75 +259,75 @@
   white-space: nowrap;
 }
 
-.kap-result-title,
-.kap-recent-title {
+.knowledge-atlas-plugin-view .kap-result-title,
+.knowledge-atlas-plugin-view .kap-recent-title {
   color: #cbd4f2;
   font-size: 10px;
   font-weight: 650;
 }
 
-.kap-result-path,
-.kap-result-date,
-.kap-recent-path,
-.kap-recent-date,
-.kap-search-empty {
+.knowledge-atlas-plugin-view .kap-result-path,
+.knowledge-atlas-plugin-view .kap-result-date,
+.knowledge-atlas-plugin-view .kap-recent-path,
+.knowledge-atlas-plugin-view .kap-recent-date,
+.knowledge-atlas-plugin-view .kap-search-empty {
   color: #7580a7;
   font: 8px "SFMono-Regular", monospace;
 }
 
-.kap-search-empty {
+.knowledge-atlas-plugin-view .kap-search-empty {
   padding: 12px;
   font-size: 10px;
 }
 
-.kap-controls {
+.knowledge-atlas-plugin-view .kap-controls {
   display: flex;
   align-items: center;
   gap: 7px;
 }
 
-.kap-button,
-.kap-domain {
-  min-height: 36px !important;
-  margin: 0 !important;
-  padding: 0 12px !important;
-  border-radius: 10px !important;
-  box-shadow: none !important;
+.knowledge-atlas-plugin-view .kap-button,
+.knowledge-atlas-plugin-view .kap-domain {
+  min-height: 36px;
+  margin: 0;
+  padding: 0 12px;
+  border-radius: 10px;
+  box-shadow: none;
   font-size: 11px;
   font-weight: 650;
   cursor: pointer;
   transition: .18s ease;
 }
 
-.kap-button {
-  border: 1px solid var(--kap-line) !important;
-  background: rgba(13,18,42,.76) !important;
-  color: var(--kap-muted) !important;
+.knowledge-atlas-plugin-view .kap-button {
+  border: 1px solid var(--kap-line);
+  background: rgba(13,18,42,.76);
+  color: var(--kap-muted);
 }
 
-.kap-button:hover:not(:disabled),
-.kap-button:focus-visible,
-.kap-button.is-active {
-  border-color: color-mix(in srgb, var(--kap-accent) 55%, transparent) !important;
-  background: color-mix(in srgb, var(--kap-accent) 14%, rgba(13,18,42,.8)) !important;
-  color: #fff !important;
+.knowledge-atlas-plugin-view .kap-button:hover:not(:disabled),
+.knowledge-atlas-plugin-view .kap-button:focus-visible,
+.knowledge-atlas-plugin-view .kap-button.is-active {
+  border-color: color-mix(in srgb, var(--kap-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--kap-accent) 14%, rgba(13,18,42,.8));
+  color: #fff;
   outline: none;
 }
 
-.kap-button:disabled {
+.knowledge-atlas-plugin-view .kap-button:disabled {
   opacity: .35;
   cursor: default;
 }
 
-.kap-layout-reset {
-  display: none !important;
+.knowledge-atlas-plugin-view .kap-layout-reset {
+  display: none;
 }
 
-.kap-layout-reset.is-visible {
-  display: inline-flex !important;
+.knowledge-atlas-plugin-view .kap-layout-reset.is-visible {
+  display: inline-flex;
 }
 
-.kap-domain-rail {
+.knowledge-atlas-plugin-view .kap-domain-rail {
   display: flex;
   gap: 8px;
   overflow-x: auto;
@@ -335,17 +335,17 @@
   scrollbar-width: thin;
 }
 
-.kap-domain {
-  display: inline-flex !important;
+.knowledge-atlas-plugin-view .kap-domain {
+  display: inline-flex;
   align-items: center;
   flex: 0 0 auto;
-  border: 1px solid color-mix(in srgb, var(--kap-domain-color) 28%, transparent) !important;
-  border-radius: 999px !important;
-  background: color-mix(in srgb, var(--kap-domain-color) 8%, rgba(10,14,34,.75)) !important;
-  color: #cdd5f4 !important;
+  border: 1px solid color-mix(in srgb, var(--kap-domain-color) 28%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--kap-domain-color) 8%, rgba(10,14,34,.75));
+  color: #cdd5f4;
 }
 
-.kap-domain::before {
+.knowledge-atlas-plugin-view .kap-domain::before {
   content: "";
   width: 6px;
   height: 6px;
@@ -355,14 +355,14 @@
   box-shadow: 0 0 12px var(--kap-domain-color);
 }
 
-.kap-domain:hover,
-.kap-domain.is-active {
-  border-color: color-mix(in srgb, var(--kap-domain-color) 60%, transparent) !important;
-  background: color-mix(in srgb, var(--kap-domain-color) 15%, rgba(10,14,34,.85)) !important;
-  color: #fff !important;
+.knowledge-atlas-plugin-view .kap-domain:hover,
+.knowledge-atlas-plugin-view .kap-domain.is-active {
+  border-color: color-mix(in srgb, var(--kap-domain-color) 60%, transparent);
+  background: color-mix(in srgb, var(--kap-domain-color) 15%, rgba(10,14,34,.85));
+  color: #fff;
 }
 
-.kap-body {
+.knowledge-atlas-plugin-view .kap-body {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 380px;
@@ -370,7 +370,7 @@
   gap: 14px;
 }
 
-.kap-stage {
+.knowledge-atlas-plugin-view .kap-stage {
   position: relative;
   align-self: start;
   min-width: 0;
@@ -381,7 +381,7 @@
   background: radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--kap-accent) 10%, transparent), transparent 45%), rgba(5,8,23,.74);
 }
 
-.kap-stage-header {
+.knowledge-atlas-plugin-view .kap-stage-header {
   position: absolute;
   z-index: 5;
   top: 15px;
@@ -393,93 +393,93 @@
   pointer-events: none;
 }
 
-.kap-breadcrumbs,
-.kap-view-hint {
+.knowledge-atlas-plugin-view .kap-breadcrumbs,
+.knowledge-atlas-plugin-view .kap-view-hint {
   color: var(--kap-muted);
   font: 9px "SFMono-Regular", monospace;
   white-space: nowrap;
 }
 
-.kap-breadcrumbs {
+.knowledge-atlas-plugin-view .kap-breadcrumbs {
   display: flex;
   gap: 6px;
   max-width: 70%;
   overflow: hidden;
 }
 
-.kap-crumb {
-  min-width: 0 !important;
-  min-height: 0 !important;
-  height: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
+.knowledge-atlas-plugin-view .kap-crumb {
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
   appearance: none;
-  background: transparent !important;
-  box-shadow: none !important;
-  color: inherit !important;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
   line-height: 1.2;
   cursor: pointer;
   pointer-events: auto;
 }
 
-.kap-crumb:hover,
-.kap-crumb:focus-visible {
-  color: #fff !important;
+.knowledge-atlas-plugin-view .kap-crumb:hover,
+.knowledge-atlas-plugin-view .kap-crumb:focus-visible {
+  color: #fff;
   outline: none;
   text-decoration: underline;
   text-decoration-color: var(--kap-accent);
   text-underline-offset: 3px;
 }
 
-.kap-graph,
-.kap-empty {
+.knowledge-atlas-plugin-view .kap-graph,
+.knowledge-atlas-plugin-view .kap-empty {
   display: block;
   width: 100%;
   min-height: 1080px;
 }
 
-.kap-graph {
+.knowledge-atlas-plugin-view .kap-graph {
   cursor: grab;
   touch-action: none;
   user-select: none;
 }
 
-.kap-graph.is-panning {
+.knowledge-atlas-plugin-view .kap-graph.is-panning {
   cursor: grabbing;
 }
 
-.kap-empty {
+.knowledge-atlas-plugin-view .kap-empty {
   display: grid;
   place-items: center;
   color: var(--kap-muted);
 }
 
-.kap-starfield,
-.kap-galaxy-scenery {
+.knowledge-atlas-plugin-view .kap-starfield,
+.knowledge-atlas-plugin-view .kap-galaxy-scenery {
   pointer-events: none;
 }
 
-.kap-space-star {
+.knowledge-atlas-plugin-view .kap-space-star {
   fill: #8da7ff;
   opacity: .34;
   animation: kap-twinkle 5.2s ease-in-out infinite;
 }
 
-.kap-space-star.is-1 {
+.knowledge-atlas-plugin-view .kap-space-star.is-1 {
   fill: #d5c4ff;
   opacity: .5;
   animation-duration: 7.4s;
 }
 
-.kap-space-star.is-2 {
+.knowledge-atlas-plugin-view .kap-space-star.is-2 {
   fill: #7be7ff;
   opacity: .25;
   animation-duration: 9.1s;
 }
 
-.kap-galaxy-disk {
+.knowledge-atlas-plugin-view .kap-galaxy-disk {
   fill: rgba(73, 86, 178, .018);
   stroke: rgba(118, 136, 232, .07);
   stroke-width: 46;
@@ -487,14 +487,14 @@
   filter: drop-shadow(0 0 44px rgba(88, 112, 255, .1));
 }
 
-.kap-orbit-spoke {
+.knowledge-atlas-plugin-view .kap-orbit-spoke {
   stroke: rgba(100, 124, 210, .075);
   stroke-width: .65;
   vector-effect: non-scaling-stroke;
 }
 
-.kap-planet-orbit,
-.kap-comet-orbit {
+.knowledge-atlas-plugin-view .kap-planet-orbit,
+.knowledge-atlas-plugin-view .kap-comet-orbit {
   fill: none;
   stroke: rgba(142, 165, 245, .2);
   stroke-width: 1;
@@ -502,16 +502,16 @@
   filter: drop-shadow(0 0 3px rgba(94, 128, 255, .24));
 }
 
-.kap-planet-orbit:nth-of-type(2n) {
+.knowledge-atlas-plugin-view .kap-planet-orbit:nth-of-type(2n) {
   stroke: rgba(105, 205, 255, .17);
 }
 
-.kap-comet-orbit {
+.knowledge-atlas-plugin-view .kap-comet-orbit {
   stroke: rgba(222, 232, 255, .14);
   stroke-dasharray: 4 12;
 }
 
-.kap-orbit {
+.knowledge-atlas-plugin-view .kap-orbit {
   fill: none;
   stroke: color-mix(in srgb, var(--kap-accent) 26%, transparent);
   stroke-width: 1;
@@ -519,18 +519,18 @@
   animation: kap-dash 16s linear infinite;
 }
 
-.kap-orbit-secondary {
+.knowledge-atlas-plugin-view .kap-orbit-secondary {
   opacity: .48;
   animation-direction: reverse;
   animation-duration: 24s;
 }
 
-.kap-orbit-primary {
+.knowledge-atlas-plugin-view .kap-orbit-primary {
   stroke: rgba(248, 200, 106, .22);
   stroke-dasharray: 2 13;
 }
 
-.kap-moon-orbit {
+.knowledge-atlas-plugin-view .kap-moon-orbit {
   fill: none;
   stroke: rgba(150, 167, 228, .11);
   stroke-width: .8;
@@ -538,7 +538,7 @@
   vector-effect: non-scaling-stroke;
 }
 
-.kap-comet-arc {
+.knowledge-atlas-plugin-view .kap-comet-arc {
   fill: none;
   stroke: rgba(223, 229, 255, .16);
   stroke-width: 1;
@@ -547,7 +547,7 @@
   animation: kap-comet-flow 4.8s linear infinite;
 }
 
-.kap-edge {
+.knowledge-atlas-plugin-view .kap-edge {
   fill: none;
   stroke: rgba(142,157,218,.2);
   stroke-width: 1;
@@ -555,31 +555,31 @@
   transition: .2s ease;
 }
 
-.kap-edge.is-cross {
+.knowledge-atlas-plugin-view .kap-edge.is-cross {
   stroke: color-mix(in srgb, var(--kap-edge-color) 42%, transparent);
   stroke-dasharray: 3 7;
   opacity: .72;
 }
 
-.kap-edge.is-orbit {
+.knowledge-atlas-plugin-view .kap-edge.is-orbit {
   stroke: color-mix(in srgb, var(--kap-edge-color) 18%, transparent);
   opacity: .48;
 }
 
-.kap-edge.is-satellite {
+.knowledge-atlas-plugin-view .kap-edge.is-satellite {
   stroke: color-mix(in srgb, var(--kap-edge-color) 28%, transparent);
   stroke-dasharray: 2 7;
   opacity: .62;
 }
 
-.kap-edge.is-lit {
+.knowledge-atlas-plugin-view .kap-edge.is-lit {
   stroke: var(--kap-edge-color);
   stroke-width: 1.6;
   opacity: .9;
   filter: drop-shadow(0 0 4px var(--kap-edge-color));
 }
 
-.kap-node {
+.knowledge-atlas-plugin-view .kap-node {
   cursor: pointer;
   outline: none;
   transform-box: view-box;
@@ -587,19 +587,19 @@
   will-change: transform, opacity;
 }
 
-.kap-halo,
-.kap-core {
+.knowledge-atlas-plugin-view .kap-halo,
+.knowledge-atlas-plugin-view .kap-core {
   transform-box: fill-box;
   transform-origin: center;
   transition: .2s ease;
 }
 
-.kap-halo {
+.knowledge-atlas-plugin-view .kap-halo {
   fill: var(--kap-node-color);
   opacity: .08;
 }
 
-.kap-core {
+.knowledge-atlas-plugin-view .kap-core {
   fill: color-mix(in srgb, var(--kap-node-color) 82%, white);
   stroke: rgba(255,255,255,.65);
   stroke-width: .8;
@@ -607,20 +607,20 @@
   filter: drop-shadow(0 0 7px var(--kap-node-color));
 }
 
-.kap-node-folder .kap-core {
+.knowledge-atlas-plugin-view .kap-node-folder .kap-core {
   fill: color-mix(in srgb, var(--kap-node-color) 32%, #111934);
   stroke: var(--kap-node-color);
   stroke-width: 1.4;
 }
 
-.kap-node-center .kap-core {
+.knowledge-atlas-plugin-view .kap-node-center .kap-core {
   fill: color-mix(in srgb, var(--kap-node-color) 28%, #0a0f29);
   stroke: var(--kap-node-color);
   stroke-width: 2;
   filter: drop-shadow(0 0 14px var(--kap-node-color));
 }
 
-.kap-node-star .kap-core {
+.knowledge-atlas-plugin-view .kap-node-star .kap-core {
   stroke: rgba(255, 249, 219, .88);
   stroke-width: .85;
   filter:
@@ -629,7 +629,7 @@
     drop-shadow(0 0 38px rgba(239, 111, 38, .32));
 }
 
-.kap-star-aura {
+.knowledge-atlas-plugin-view .kap-star-aura {
   opacity: .9;
   pointer-events: none;
   transform-box: fill-box;
@@ -637,45 +637,45 @@
   animation: kap-star-breathe 6.8s ease-in-out infinite;
 }
 
-.kap-star-aura.is-inner {
+.knowledge-atlas-plugin-view .kap-star-aura.is-inner {
   opacity: .68;
   animation-delay: -2.7s;
 }
 
-.kap-star-surface {
+.knowledge-atlas-plugin-view .kap-star-surface {
   shape-rendering: geometricPrecision;
 }
 
-.kap-star-granulation,
-.kap-star-specular,
-.kap-star-limb,
-.kap-star-corona {
+.knowledge-atlas-plugin-view .kap-star-granulation,
+.knowledge-atlas-plugin-view .kap-star-specular,
+.knowledge-atlas-plugin-view .kap-star-limb,
+.knowledge-atlas-plugin-view .kap-star-corona {
   pointer-events: none;
 }
 
-.kap-star-grain {
+.knowledge-atlas-plugin-view .kap-star-grain {
   fill: #ef9b38;
   opacity: .24;
   filter: blur(.35px);
 }
 
-.kap-star-grain.is-bright {
+.knowledge-atlas-plugin-view .kap-star-grain.is-bright {
   fill: #fff8c7;
   opacity: .34;
 }
 
-.kap-star-specular {
+.knowledge-atlas-plugin-view .kap-star-specular {
   fill: rgba(255, 255, 242, .28);
   filter: blur(1px);
 }
 
-.kap-star-limb {
+.knowledge-atlas-plugin-view .kap-star-limb {
   stroke: rgba(255, 244, 192, .72);
   stroke-width: .72;
   filter: drop-shadow(0 0 3px rgba(255, 221, 126, .68));
 }
 
-.kap-star-prominence {
+.knowledge-atlas-plugin-view .kap-star-prominence {
   fill: none;
   stroke: rgba(255, 170, 66, .42);
   stroke-width: 1.15;
@@ -684,10 +684,10 @@
   filter: drop-shadow(0 0 5px rgba(255, 131, 45, .44));
 }
 
-.kap-star-prominence.is-2 { opacity: .62; }
-.kap-star-prominence.is-3 { opacity: .48; }
+.knowledge-atlas-plugin-view .kap-star-prominence.is-2 { opacity: .62; }
+.knowledge-atlas-plugin-view .kap-star-prominence.is-3 { opacity: .48; }
 
-.kap-node-planet .kap-core {
+.knowledge-atlas-plugin-view .kap-node-planet .kap-core {
   stroke: rgba(232, 245, 255, .72);
   stroke-width: .75;
   filter:
@@ -695,12 +695,12 @@
     drop-shadow(0 0 19px color-mix(in srgb, var(--kap-node-color) 34%, transparent));
 }
 
-.kap-planet-halo {
+.knowledge-atlas-plugin-view .kap-planet-halo {
   opacity: .07;
   filter: blur(2px);
 }
 
-.kap-planet-ring {
+.knowledge-atlas-plugin-view .kap-planet-ring {
   fill: none;
   stroke: color-mix(in srgb, var(--kap-node-color) 48%, #f6e6c5);
   stroke-width: 3.2;
@@ -710,55 +710,55 @@
   filter: drop-shadow(0 0 3px color-mix(in srgb, var(--kap-node-color) 72%, transparent));
 }
 
-.kap-planet-texture-clip,
-.kap-planet-texture,
-.kap-moon-texture-clip,
-.kap-moon-texture,
-.kap-planet-night,
-.kap-moon-night,
-.kap-planet-specular,
-.kap-planet-atmosphere,
-.kap-moon-rim {
+.knowledge-atlas-plugin-view .kap-planet-texture-clip,
+.knowledge-atlas-plugin-view .kap-planet-texture,
+.knowledge-atlas-plugin-view .kap-moon-texture-clip,
+.knowledge-atlas-plugin-view .kap-moon-texture,
+.knowledge-atlas-plugin-view .kap-planet-night,
+.knowledge-atlas-plugin-view .kap-moon-night,
+.knowledge-atlas-plugin-view .kap-planet-specular,
+.knowledge-atlas-plugin-view .kap-planet-atmosphere,
+.knowledge-atlas-plugin-view .kap-moon-rim {
   pointer-events: none;
 }
 
-.kap-planet-texture {
+.knowledge-atlas-plugin-view .kap-planet-texture {
   transform-box: fill-box;
   transform-origin: center;
   will-change: transform;
 }
 
-.kap-planet-band {
+.knowledge-atlas-plugin-view .kap-planet-band {
   stroke-linecap: round;
   filter: blur(.15px);
 }
 
-.kap-planet-feature {
+.knowledge-atlas-plugin-view .kap-planet-feature {
   filter: blur(.3px);
 }
 
-.kap-planet-texture.is-gas .kap-planet-feature,
-.kap-planet-texture.is-storm .kap-planet-feature {
+.knowledge-atlas-plugin-view .kap-planet-texture.is-gas .kap-planet-feature,
+.knowledge-atlas-plugin-view .kap-planet-texture.is-storm .kap-planet-feature {
   filter: blur(.55px);
 }
 
-.kap-planet-storm {
+.knowledge-atlas-plugin-view .kap-planet-storm {
   opacity: .42;
   filter: blur(.4px);
 }
 
-.kap-planet-night {
+.knowledge-atlas-plugin-view .kap-planet-night {
   fill: rgba(1, 4, 14, .42);
   stroke: none;
   filter: blur(.5px);
 }
 
-.kap-planet-specular {
+.knowledge-atlas-plugin-view .kap-planet-specular {
   fill: rgba(255, 255, 255, .32);
   filter: blur(1.1px);
 }
 
-.kap-planet-atmosphere {
+.knowledge-atlas-plugin-view .kap-planet-atmosphere {
   stroke-width: 1.15;
   opacity: .78;
   vector-effect: non-scaling-stroke;
@@ -767,34 +767,34 @@
     drop-shadow(0 0 8px color-mix(in srgb, var(--kap-atmosphere-color) 44%, transparent));
 }
 
-.kap-node-moon .kap-core {
+.knowledge-atlas-plugin-view .kap-node-moon .kap-core {
   stroke: rgba(232, 240, 255, .7);
   stroke-width: .65;
   filter: drop-shadow(0 0 5px color-mix(in srgb, var(--kap-node-color) 52%, transparent));
 }
 
-.kap-moon-halo {
+.knowledge-atlas-plugin-view .kap-moon-halo {
   opacity: .045;
 }
 
-.kap-moon-crater {
+.knowledge-atlas-plugin-view .kap-moon-crater {
   fill: rgba(11, 18, 34, .38);
   stroke: rgba(255, 255, 255, .1);
   stroke-width: .32;
 }
 
-.kap-moon-night {
+.knowledge-atlas-plugin-view .kap-moon-night {
   fill: rgba(2, 5, 14, .38);
   filter: blur(.3px);
 }
 
-.kap-moon-rim {
+.knowledge-atlas-plugin-view .kap-moon-rim {
   stroke: rgba(225, 238, 255, .52);
   stroke-width: .6;
   vector-effect: non-scaling-stroke;
 }
 
-.kap-node-comet .kap-core {
+.knowledge-atlas-plugin-view .kap-node-comet .kap-core {
   fill: #fff;
   stroke: #dce8ff;
   stroke-width: 1;
@@ -803,7 +803,7 @@
     drop-shadow(0 0 18px #a8c8ff);
 }
 
-.kap-comet-tail {
+.knowledge-atlas-plugin-view .kap-comet-tail {
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -811,42 +811,42 @@
   animation: kap-comet-tail 4.8s ease-in-out infinite;
 }
 
-.kap-comet-tail.is-plume {
+.knowledge-atlas-plugin-view .kap-comet-tail.is-plume {
   stroke-width: 10;
   opacity: .3;
   filter: blur(1.8px);
 }
 
-.kap-comet-tail.is-ribbon {
+.knowledge-atlas-plugin-view .kap-comet-tail.is-ribbon {
   stroke-width: 4.2;
   opacity: .62;
   filter: blur(.55px);
   animation-delay: -.9s;
 }
 
-.kap-comet-tail.is-thread {
+.knowledge-atlas-plugin-view .kap-comet-tail.is-thread {
   stroke-width: 1.35;
   opacity: .92;
   filter: drop-shadow(0 0 4px #b9d5ff);
   animation-delay: -1.8s;
 }
 
-.kap-comet-spark {
+.knowledge-atlas-plugin-view .kap-comet-spark {
   fill: #eaf3ff;
   filter: drop-shadow(0 0 4px #fff);
   animation: kap-twinkle 2.4s ease-in-out infinite;
 }
 
-.kap-comet-spark.is-two {
+.knowledge-atlas-plugin-view .kap-comet-spark.is-two {
   animation-delay: -1.1s;
 }
 
-.kap-comet-spark.is-three {
+.knowledge-atlas-plugin-view .kap-comet-spark.is-three {
   opacity: .42;
   animation-delay: -1.8s;
 }
 
-.kap-label {
+.knowledge-atlas-plugin-view .kap-label {
   fill: #cfd7f5;
   font: 10px "SF Pro Text", sans-serif;
   paint-order: stroke;
@@ -856,26 +856,26 @@
   transition: .2s ease;
 }
 
-.kap-node-note .kap-label {
+.knowledge-atlas-plugin-view .kap-node-note .kap-label {
   fill: #aeb8dd;
   font-size: 8px;
   opacity: .72;
 }
 
-.kap-node-star .kap-label {
+.knowledge-atlas-plugin-view .kap-node-star .kap-label {
   fill: #fff1bd;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .12em;
 }
 
-.kap-node-planet .kap-label {
+.knowledge-atlas-plugin-view .kap-node-planet .kap-label {
   fill: #eef2ff;
   font-size: 10px;
   font-weight: 720;
 }
 
-.kap-node-planet .kap-node-count {
+.knowledge-atlas-plugin-view .kap-node-planet .kap-node-count {
   fill: #fff;
   font-size: 8px;
   font-weight: 800;
@@ -883,55 +883,55 @@
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .95));
 }
 
-.kap-node-moon .kap-label {
+.knowledge-atlas-plugin-view .kap-node-moon .kap-label {
   fill: #aebbe3;
   font-size: 7.5px;
 }
 
-.kap-node-comet .kap-label {
+.knowledge-atlas-plugin-view .kap-node-comet .kap-label {
   fill: #eef5ff;
   font-size: 9px;
   font-weight: 720;
 }
 
-.kap-node-note .kap-label.is-collapsed {
+.knowledge-atlas-plugin-view .kap-node-note .kap-label.is-collapsed {
   opacity: 0;
 }
 
-.kap-node:hover .kap-halo,
-.kap-node:focus-visible .kap-halo {
+.knowledge-atlas-plugin-view .kap-node:hover .kap-halo,
+.knowledge-atlas-plugin-view .kap-node:focus-visible .kap-halo {
   opacity: .22;
   transform: scale(1.35);
 }
 
-.kap-node:hover .kap-core,
-.kap-node:focus-visible .kap-core {
+.knowledge-atlas-plugin-view .kap-node:hover .kap-core,
+.knowledge-atlas-plugin-view .kap-node:focus-visible .kap-core {
   stroke: #fff;
   transform: scale(1.12);
 }
 
-.kap-node-planet:hover .kap-core,
-.kap-node-planet:focus-visible .kap-core,
-.kap-node-moon:hover .kap-core,
-.kap-node-moon:focus-visible .kap-core {
+.knowledge-atlas-plugin-view .kap-node-planet:hover .kap-core,
+.knowledge-atlas-plugin-view .kap-node-planet:focus-visible .kap-core,
+.knowledge-atlas-plugin-view .kap-node-moon:hover .kap-core,
+.knowledge-atlas-plugin-view .kap-node-moon:focus-visible .kap-core {
   transform: none;
 }
 
-.kap-node-planet:hover .kap-planet-atmosphere,
-.kap-node-planet:focus-visible .kap-planet-atmosphere,
-.kap-node-moon:hover .kap-moon-rim,
-.kap-node-moon:focus-visible .kap-moon-rim {
+.knowledge-atlas-plugin-view .kap-node-planet:hover .kap-planet-atmosphere,
+.knowledge-atlas-plugin-view .kap-node-planet:focus-visible .kap-planet-atmosphere,
+.knowledge-atlas-plugin-view .kap-node-moon:hover .kap-moon-rim,
+.knowledge-atlas-plugin-view .kap-node-moon:focus-visible .kap-moon-rim {
   opacity: 1;
   stroke-width: 1.5;
 }
 
-.kap-node:hover .kap-label,
-.kap-node:focus-visible .kap-label {
+.knowledge-atlas-plugin-view .kap-node:hover .kap-label,
+.knowledge-atlas-plugin-view .kap-node:focus-visible .kap-label {
   fill: #fff;
   opacity: 1;
 }
 
-.kap-limit-note {
+.knowledge-atlas-plugin-view .kap-limit-note {
   position: absolute;
   right: 16px;
   bottom: 11px;
@@ -942,7 +942,7 @@
   pointer-events: none;
 }
 
-.kap-zoom {
+.knowledge-atlas-plugin-view .kap-zoom {
   position: absolute;
   z-index: 6;
   top: 44px;
@@ -956,46 +956,46 @@
   box-shadow: 0 12px 34px rgba(0,0,0,.3);
 }
 
-.kap-zoom-button,
-.kap-zoom-value {
-  display: grid !important;
+.knowledge-atlas-plugin-view .kap-zoom-button,
+.knowledge-atlas-plugin-view .kap-zoom-value {
+  display: grid;
   place-items: center;
-  height: 33px !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-right: 1px solid rgba(142,160,255,.13) !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  color: #aab5da !important;
+  height: 33px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-right: 1px solid rgba(142,160,255,.13);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #aab5da;
 }
 
-.kap-zoom-button {
+.knowledge-atlas-plugin-view .kap-zoom-button {
   font: 700 15px "SFMono-Regular", monospace;
   cursor: pointer;
 }
 
-.kap-zoom-button.is-fit {
-  border-right: 0 !important;
+.knowledge-atlas-plugin-view .kap-zoom-button.is-fit {
+  border-right: 0;
   font-size: 9px;
 }
 
-.kap-zoom-value {
-  color: #e4e9ff !important;
+.knowledge-atlas-plugin-view .kap-zoom-value {
+  color: #e4e9ff;
   font: 9px "SFMono-Regular", monospace;
   font-variant-numeric: tabular-nums;
 }
 
-.kap-zoom-button:hover,
-.kap-zoom-button:focus-visible {
-  background: color-mix(in srgb, var(--kap-accent) 14%, transparent) !important;
-  color: #fff !important;
+.knowledge-atlas-plugin-view .kap-zoom-button:hover,
+.knowledge-atlas-plugin-view .kap-zoom-button:focus-visible {
+  background: color-mix(in srgb, var(--kap-accent) 14%, transparent);
+  color: #fff;
   outline: none;
 }
 
-.kap-motion-controls {
+.knowledge-atlas-plugin-view .kap-motion-controls {
   position: absolute;
   z-index: 6;
   top: 86px;
@@ -1011,59 +1011,59 @@
   backdrop-filter: blur(12px);
 }
 
-.kap-motion-controls.is-visible {
+.knowledge-atlas-plugin-view .kap-motion-controls.is-visible {
   display: grid;
 }
 
-.kap-motion-controls.is-hover-paused {
+.knowledge-atlas-plugin-view .kap-motion-controls.is-hover-paused {
   border-color: rgba(113, 231, 255, .58);
   box-shadow: 0 0 0 1px rgba(113, 231, 255, .08), 0 12px 34px rgba(0, 0, 0, .3);
 }
 
-.kap-stage.is-orbit-hover-paused .kap-planet-orbit,
-.kap-stage.is-orbit-hover-paused .kap-moon-orbit {
+.knowledge-atlas-plugin-view .kap-stage.is-orbit-hover-paused .kap-planet-orbit,
+.knowledge-atlas-plugin-view .kap-stage.is-orbit-hover-paused .kap-moon-orbit {
   stroke-opacity: .68;
 }
 
 /* Keep gradients and surface detail while moving; restore full optical effects on pause/hover. */
-.kap-stage.is-motion-running:not(.is-orbit-hover-paused) .kap-node *,
-.kap-stage.is-motion-running:not(.is-orbit-hover-paused) .kap-galaxy-disk,
-.kap-stage.is-motion-running:not(.is-orbit-hover-paused) .kap-planet-ring {
-  filter: none !important;
+.knowledge-atlas-plugin-view .kap-stage.is-motion-running:not(.is-orbit-hover-paused) .kap-node *,
+.knowledge-atlas-plugin-view .kap-stage.is-motion-running:not(.is-orbit-hover-paused) .kap-galaxy-disk,
+.knowledge-atlas-plugin-view .kap-stage.is-motion-running:not(.is-orbit-hover-paused) .kap-planet-ring {
+  filter: none;
 }
 
-.kap-stage.is-motion-running:not(.is-orbit-hover-paused) .kap-planet-halo,
-.kap-stage.is-motion-running:not(.is-orbit-hover-paused) .kap-moon-halo {
+.knowledge-atlas-plugin-view .kap-stage.is-motion-running:not(.is-orbit-hover-paused) .kap-planet-halo,
+.knowledge-atlas-plugin-view .kap-stage.is-motion-running:not(.is-orbit-hover-paused) .kap-moon-halo {
   opacity: .035;
 }
 
-.kap-motion-toggle {
-  display: grid !important;
+.knowledge-atlas-plugin-view .kap-motion-toggle {
+  display: grid;
   place-items: center;
-  width: 33px !important;
-  min-width: 0 !important;
-  min-height: 44px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-right: 1px solid rgba(142, 160, 255, .13) !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  color: #dce4ff !important;
-  box-shadow: none !important;
+  width: 33px;
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-right: 1px solid rgba(142, 160, 255, .13);
+  border-radius: 0;
+  background: transparent;
+  color: #dce4ff;
+  box-shadow: none;
   font: 750 11px "SFMono-Regular", monospace;
   cursor: pointer;
 }
 
-.kap-motion-toggle:hover,
-.kap-motion-toggle:focus-visible,
-.kap-motion-toggle.is-paused {
-  background: color-mix(in srgb, var(--kap-accent) 14%, transparent) !important;
-  color: #fff !important;
+.knowledge-atlas-plugin-view .kap-motion-toggle:hover,
+.knowledge-atlas-plugin-view .kap-motion-toggle:focus-visible,
+.knowledge-atlas-plugin-view .kap-motion-toggle.is-paused {
+  background: color-mix(in srgb, var(--kap-accent) 14%, transparent);
+  color: #fff;
   outline: none;
 }
 
-.kap-motion-speed {
+.knowledge-atlas-plugin-view .kap-motion-speed {
   display: grid;
   grid-template-columns: auto 86px 34px;
   align-items: center;
@@ -1072,34 +1072,34 @@
   padding: 0 10px;
 }
 
-.kap-motion-label,
-.kap-motion-value {
+.knowledge-atlas-plugin-view .kap-motion-label,
+.knowledge-atlas-plugin-view .kap-motion-value {
   color: #9eabd2;
   font: 8px "SFMono-Regular", Consolas, monospace;
   white-space: nowrap;
 }
 
-.kap-motion-value {
+.knowledge-atlas-plugin-view .kap-motion-value {
   color: #e7ebff;
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-.kap-motion-slider {
+.knowledge-atlas-plugin-view .kap-motion-slider {
   width: 86px;
   margin: 0;
   accent-color: var(--kap-accent);
   cursor: ew-resize;
 }
 
-.kap-dock {
+.knowledge-atlas-plugin-view .kap-dock {
   display: grid;
   align-content: start;
   gap: 12px;
   min-width: 0;
 }
 
-.kap-layout-notice {
+.knowledge-atlas-plugin-view .kap-layout-notice {
   position: absolute;
   z-index: 80;
   top: 8px;
@@ -1117,40 +1117,40 @@
   pointer-events: none;
 }
 
-.kap-layout-handle,
-.kap-resize-handle {
+.knowledge-atlas-plugin-view .kap-layout-handle,
+.knowledge-atlas-plugin-view .kap-resize-handle {
   position: absolute;
   z-index: 90;
-  display: none !important;
+  display: none;
   place-items: center;
-  width: 28px !important;
-  height: 28px !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 1px solid rgba(165, 181, 255, .36) !important;
-  background: rgba(8, 12, 32, .94) !important;
-  color: #dfe5ff !important;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, .34) !important;
+  width: 28px;
+  height: 28px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(165, 181, 255, .36);
+  background: rgba(8, 12, 32, .94);
+  color: #dfe5ff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .34);
   touch-action: none;
 }
 
-.kap-layout-handle {
+.knowledge-atlas-plugin-view .kap-layout-handle {
   top: 7px;
   left: 7px;
-  border-radius: 9px !important;
+  border-radius: 9px;
   font: 800 15px/1 "SFMono-Regular", monospace;
   cursor: grab;
 }
 
-.kap-resize-handle {
+.knowledge-atlas-plugin-view .kap-resize-handle {
   right: 6px;
   bottom: 6px;
-  border-radius: 8px 2px 8px 2px !important;
+  border-radius: 8px 2px 8px 2px;
   cursor: nwse-resize;
 }
 
-.kap-resize-handle::before {
+.knowledge-atlas-plugin-view .kap-resize-handle::before {
   content: "";
   width: 12px;
   height: 12px;
@@ -1159,32 +1159,32 @@
   opacity: .8;
 }
 
-.kap-body.is-layout-editing .kap-layout-notice,
-.kap-body.is-layout-editing .kap-layout-handle,
-.kap-body.is-layout-editing .kap-resize-handle {
-  display: grid !important;
+.knowledge-atlas-plugin-view .kap-body.is-layout-editing .kap-layout-notice,
+.knowledge-atlas-plugin-view .kap-body.is-layout-editing .kap-layout-handle,
+.knowledge-atlas-plugin-view .kap-body.is-layout-editing .kap-resize-handle {
+  display: grid;
 }
 
-.kap-body.is-layout-editing .kap-layout-item {
+.knowledge-atlas-plugin-view .kap-body.is-layout-editing .kap-layout-item {
   outline: 1px dashed color-mix(in srgb, var(--kap-accent) 56%, transparent);
   outline-offset: -3px;
 }
 
-.kap-layout-item.is-layout-interacting {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, .54), 0 0 0 2px color-mix(in srgb, var(--kap-accent) 72%, transparent) !important;
+.knowledge-atlas-plugin-view .kap-layout-item.is-layout-interacting {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .54), 0 0 0 2px color-mix(in srgb, var(--kap-accent) 72%, transparent);
 }
 
 @media (min-width: 1051px) {
-  .kap-body.is-free-layout {
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout {
     display: block;
     align-items: initial;
   }
 
-  .kap-body.is-free-layout .kap-dock {
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-dock {
     display: contents;
   }
 
-  .kap-body.is-free-layout .kap-layout-item {
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-layout-item {
     position: absolute;
     min-width: 0;
     max-width: none;
@@ -1192,23 +1192,23 @@
     box-shadow: 0 16px 44px rgba(0, 0, 0, .2), inset 0 1px rgba(255, 255, 255, .025);
   }
 
-  .kap-body.is-free-layout .kap-stage {
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-stage {
     min-height: 0;
   }
 
-  .kap-body.is-free-layout .kap-stage .kap-graph,
-  .kap-body.is-free-layout .kap-stage .kap-empty {
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-stage .kap-graph,
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-stage .kap-empty {
     height: 100%;
     min-height: 0;
   }
 
-  .kap-body.is-free-layout .kap-dock > .kap-layout-item {
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-dock > .kap-layout-item {
     overflow: auto;
     --kap-panel-accent: #5b8cff;
     border-color: color-mix(in srgb, var(--kap-panel-accent) 24%, var(--kap-line));
   }
 
-  .kap-body.is-free-layout .kap-dock > .kap-layout-item::before {
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-dock > .kap-layout-item::before {
     content: "";
     position: absolute;
     z-index: 2;
@@ -1221,17 +1221,17 @@
     pointer-events: none;
   }
 
-  .kap-body.is-free-layout .kap-dock > [data-layout-id="clock"],
-  .kap-body.is-free-layout .kap-dock > [data-layout-id="calendar"] { --kap-panel-accent: #5b8cff; }
-  .kap-body.is-free-layout .kap-dock > [data-layout-id="legend"] { --kap-panel-accent: #a855f7; }
-  .kap-body.is-free-layout .kap-dock > [data-layout-id="heatmap"] { --kap-panel-accent: #22d3ee; }
-  .kap-body.is-free-layout .kap-dock > [data-layout-id="trajectory"] { --kap-panel-accent: #34d399; }
-  .kap-body.is-free-layout .kap-dock > [data-layout-id="health"] { --kap-panel-accent: #f43f8e; }
-  .kap-body.is-free-layout .kap-dock > [data-layout-id="review"] { --kap-panel-accent: #facc15; }
-  .kap-body.is-free-layout .kap-dock > [data-layout-id="recent"] { --kap-panel-accent: #a855f7; }
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-dock > [data-layout-id="clock"],
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-dock > [data-layout-id="calendar"] { --kap-panel-accent: #5b8cff; }
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-dock > [data-layout-id="legend"] { --kap-panel-accent: #a855f7; }
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-dock > [data-layout-id="heatmap"] { --kap-panel-accent: #22d3ee; }
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-dock > [data-layout-id="trajectory"] { --kap-panel-accent: #34d399; }
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-dock > [data-layout-id="health"] { --kap-panel-accent: #f43f8e; }
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-dock > [data-layout-id="review"] { --kap-panel-accent: #facc15; }
+  .knowledge-atlas-plugin-view .kap-body.is-free-layout .kap-dock > [data-layout-id="recent"] { --kap-panel-accent: #a855f7; }
 }
 
-.kap-panel {
+.knowledge-atlas-plugin-view .kap-panel {
   min-width: 0;
   overflow: hidden;
   padding: 14px;
@@ -1241,14 +1241,14 @@
   backdrop-filter: blur(14px);
 }
 
-.kap-panel-title {
+.knowledge-atlas-plugin-view .kap-panel-title {
   margin: 7px 0 0;
   overflow-wrap: anywhere;
   color: #fff;
   font: 700 17px/1.25 "Avenir Next", sans-serif;
 }
 
-.kap-panel-meta {
+.knowledge-atlas-plugin-view .kap-panel-meta {
   margin: 7px 0 0;
   color: var(--kap-muted);
   font-size: 10px;
@@ -1256,14 +1256,14 @@
   overflow-wrap: anywhere;
 }
 
-.kap-legend {
+.knowledge-atlas-plugin-view .kap-legend {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   margin-top: 10px;
 }
 
-.kap-legend-item {
+.knowledge-atlas-plugin-view .kap-legend-item {
   display: flex;
   align-items: center;
   gap: 7px;
@@ -1271,7 +1271,7 @@
   font-size: 9px;
 }
 
-.kap-legend-mark {
+.knowledge-atlas-plugin-view .kap-legend-mark {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -1279,28 +1279,28 @@
   box-shadow: 0 0 9px var(--kap-legend-color);
 }
 
-.kap-legend-mark.is-planet {
+.knowledge-atlas-plugin-view .kap-legend-mark.is-planet {
   border: 1px solid var(--kap-legend-color);
   background: transparent;
 }
 
-.kap-legend-mark.is-star {
+.knowledge-atlas-plugin-view .kap-legend-mark.is-star {
   box-shadow: 0 0 5px #fff, 0 0 12px var(--kap-legend-color);
 }
 
-.kap-legend-mark.is-moon {
+.knowledge-atlas-plugin-view .kap-legend-mark.is-moon {
   width: 6px;
   height: 6px;
   opacity: .82;
 }
 
-.kap-legend-mark.is-comet {
+.knowledge-atlas-plugin-view .kap-legend-mark.is-comet {
   position: relative;
   width: 6px;
   height: 6px;
 }
 
-.kap-legend-mark.is-comet::before {
+.knowledge-atlas-plugin-view .kap-legend-mark.is-comet::before {
   content: "";
   position: absolute;
   top: 2px;
@@ -1311,32 +1311,32 @@
   background: linear-gradient(90deg, transparent, var(--kap-legend-color));
 }
 
-.kap-recent-list {
+.knowledge-atlas-plugin-view .kap-recent-list {
   display: grid;
   min-width: 0;
   overflow: hidden;
   margin-top: 9px;
 }
 
-.kap-recent {
-  display: grid !important;
+.knowledge-atlas-plugin-view .kap-recent {
+  display: grid;
   grid-template-columns: 3px minmax(0,1fr) auto;
   align-items: center;
   gap: 8px;
-  min-height: 40px !important;
-  padding: 7px 2px !important;
+  min-height: 40px;
+  padding: 7px 2px;
   overflow: hidden;
-  border: 0 !important;
-  border-bottom: 1px solid rgba(139,157,220,.1) !important;
-  border-radius: 0 !important;
-  background: transparent !important;
+  border: 0;
+  border-bottom: 1px solid rgba(139,157,220,.1);
+  border-radius: 0;
+  background: transparent;
 }
 
-.kap-recent:last-child {
-  border-bottom: 0 !important;
+.knowledge-atlas-plugin-view .kap-recent:last-child {
+  border-bottom: 0;
 }
 
-.kap-recent-bar {
+.knowledge-atlas-plugin-view .kap-recent-bar {
   width: 3px;
   height: 23px;
   border-radius: 3px;
@@ -1344,20 +1344,20 @@
   box-shadow: 0 0 9px var(--kap-recent-color);
 }
 
-.kap-recent-date,
-.kap-result-date {
+.knowledge-atlas-plugin-view .kap-recent-date,
+.knowledge-atlas-plugin-view .kap-result-date {
   justify-self: end;
   white-space: nowrap;
 }
 
-.kap-insights {
+.knowledge-atlas-plugin-view .kap-insights {
   display: grid;
   width: min(100%, 1500px);
   margin: 14px auto 0;
   gap: 14px;
 }
 
-.kap-insight-panel {
+.knowledge-atlas-plugin-view .kap-insight-panel {
   position: relative;
   min-width: 0;
   overflow: hidden;
@@ -1371,48 +1371,48 @@
   backdrop-filter: blur(14px);
 }
 
-.kap-insight-header,
-.kap-calendar-heading {
+.knowledge-atlas-plugin-view .kap-insight-header,
+.knowledge-atlas-plugin-view .kap-calendar-heading {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 18px;
 }
 
-.kap-insight-title {
+.knowledge-atlas-plugin-view .kap-insight-title {
   margin: 6px 0 0;
   color: #f7f9ff;
   font: 700 18px/1.2 "Avenir Next", "SF Pro Display", sans-serif;
   letter-spacing: -.015em;
 }
 
-.kap-insight-meta {
+.knowledge-atlas-plugin-view .kap-insight-meta {
   max-width: 50%;
   color: var(--kap-muted);
   font: 9px/1.5 "SFMono-Regular", Consolas, monospace;
   text-align: right;
 }
 
-.kap-right-rail .kap-insight-panel {
+.knowledge-atlas-plugin-view .kap-right-rail .kap-insight-panel {
   padding: 14px;
   border-radius: 17px;
 }
 
-.kap-right-rail .kap-insight-header {
+.knowledge-atlas-plugin-view .kap-right-rail .kap-insight-header {
   display: grid;
   gap: 5px;
 }
 
-.kap-right-rail .kap-insight-meta {
+.knowledge-atlas-plugin-view .kap-right-rail .kap-insight-meta {
   max-width: none;
   text-align: left;
 }
 
-.kap-right-rail .kap-insight-title {
+.knowledge-atlas-plugin-view .kap-right-rail .kap-insight-title {
   font-size: 16px;
 }
 
-.kap-heatmap-viewport {
+.knowledge-atlas-plugin-view .kap-heatmap-viewport {
   width: 100%;
   margin-top: 16px;
   overflow-x: auto;
@@ -1420,8 +1420,8 @@
   scrollbar-width: thin;
 }
 
-.kap-heatmap-months,
-.kap-heatmap-grid {
+.knowledge-atlas-plugin-view .kap-heatmap-months,
+.knowledge-atlas-plugin-view .kap-heatmap-grid {
   display: grid;
   grid-template-columns: repeat(53, 12px);
   column-gap: 4px;
@@ -1429,22 +1429,22 @@
   min-width: 844px;
 }
 
-.kap-heatmap-months {
+.knowledge-atlas-plugin-view .kap-heatmap-months {
   height: 20px;
   color: #8994bb;
   font: 8px "SFMono-Regular", Consolas, monospace;
 }
 
-.kap-heatmap-months span {
+.knowledge-atlas-plugin-view .kap-heatmap-months span {
   white-space: nowrap;
 }
 
-.kap-heatmap-grid {
+.knowledge-atlas-plugin-view .kap-heatmap-grid {
   grid-template-rows: repeat(7, 12px);
   row-gap: 4px;
 }
 
-.kap-heat-cell {
+.knowledge-atlas-plugin-view .kap-heat-cell {
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -1454,35 +1454,35 @@
   transition: transform .15s ease, border-color .15s ease, filter .15s ease;
 }
 
-button.kap-heat-cell {
-  min-width: 0 !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 1px solid rgba(132, 150, 215, .09) !important;
-  border-radius: 3px !important;
-  box-shadow: none !important;
+.knowledge-atlas-plugin-view button.kap-heat-cell {
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(132, 150, 215, .09);
+  border-radius: 3px;
+  box-shadow: none;
 }
 
-.kap-heat-grid .kap-heat-cell:hover,
-.kap-heatmap-grid .kap-heat-cell:hover {
+.knowledge-atlas-plugin-view .kap-heat-grid .kap-heat-cell:hover,
+.knowledge-atlas-plugin-view .kap-heatmap-grid .kap-heat-cell:hover {
   z-index: 2;
   border-color: rgba(255,255,255,.7);
   filter: brightness(1.2);
   transform: scale(1.28);
 }
 
-.kap-heat-cell.level-1 { background: color-mix(in srgb, #22d3ee 35%, #101735); }
-.kap-heat-cell.level-2 { background: color-mix(in srgb, #22d3ee 68%, #101735); box-shadow: 0 0 7px rgba(34,211,238,.18); }
-.kap-heat-cell.level-3 { background: #5b8cff; box-shadow: 0 0 8px rgba(91,140,255,.28); }
-.kap-heat-cell.level-4 { background: #f43f8e; box-shadow: 0 0 10px rgba(244,63,142,.38); }
-.kap-heat-cell.is-future { opacity: .2; }
-.kap-heat-cell.is-selected {
-  border-color: #fff !important;
-  box-shadow: 0 0 0 2px rgba(91,140,255,.5), 0 0 12px currentColor !important;
+.knowledge-atlas-plugin-view .kap-heat-cell.level-1 { background: color-mix(in srgb, #22d3ee 35%, #101735); }
+.knowledge-atlas-plugin-view .kap-heat-cell.level-2 { background: color-mix(in srgb, #22d3ee 68%, #101735); box-shadow: 0 0 7px rgba(34,211,238,.18); }
+.knowledge-atlas-plugin-view .kap-heat-cell.level-3 { background: #5b8cff; box-shadow: 0 0 8px rgba(91,140,255,.28); }
+.knowledge-atlas-plugin-view .kap-heat-cell.level-4 { background: #f43f8e; box-shadow: 0 0 10px rgba(244,63,142,.38); }
+.knowledge-atlas-plugin-view .kap-heat-cell.is-future { opacity: .2; }
+.knowledge-atlas-plugin-view .kap-heat-cell.is-selected {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px rgba(91,140,255,.5), 0 0 12px currentColor;
 }
 
-.kap-day-detail {
+.knowledge-atlas-plugin-view .kap-day-detail {
   display: none;
   margin-top: 10px;
   padding: 10px;
@@ -1491,11 +1491,11 @@ button.kap-heat-cell {
   background: rgba(7, 11, 28, .6);
 }
 
-.kap-day-detail.is-visible {
+.knowledge-atlas-plugin-view .kap-day-detail.is-visible {
   display: block;
 }
 
-.kap-day-detail-heading {
+.knowledge-atlas-plugin-view .kap-day-detail-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1504,12 +1504,12 @@ button.kap-heat-cell {
   font: 9px "SFMono-Regular", Consolas, monospace;
 }
 
-.kap-day-detail-heading span {
+.knowledge-atlas-plugin-view .kap-day-detail-heading span {
   color: #7e8ab0;
 }
 
-.kap-compact-note-list,
-.kap-health-list {
+.knowledge-atlas-plugin-view .kap-compact-note-list,
+.knowledge-atlas-plugin-view .kap-health-list {
   display: grid;
   max-height: 260px;
   margin-top: 7px;
@@ -1517,39 +1517,39 @@ button.kap-heat-cell {
   scrollbar-width: thin;
 }
 
-.kap-compact-note,
-.kap-health-note {
-  display: grid !important;
-  width: 100% !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: 8px 3px !important;
+.knowledge-atlas-plugin-view .kap-compact-note,
+.knowledge-atlas-plugin-view .kap-health-note {
+  display: grid;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 8px 3px;
   overflow: hidden;
-  border: 0 !important;
-  border-bottom: 1px solid rgba(131, 150, 215, .09) !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
+  border: 0;
+  border-bottom: 1px solid rgba(131, 150, 215, .09);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
   justify-items: start;
   text-align: left;
 }
 
-.kap-day-overflow {
+.knowledge-atlas-plugin-view .kap-day-overflow {
   margin-top: 7px;
   color: #7885ad;
   font: 8px/1.5 "SFMono-Regular", Consolas, monospace;
 }
 
-.kap-compact-note:hover,
-.kap-compact-note:focus-visible,
-.kap-health-note:hover,
-.kap-health-note:focus-visible {
-  background: rgba(91, 140, 255, .08) !important;
+.knowledge-atlas-plugin-view .kap-compact-note:hover,
+.knowledge-atlas-plugin-view .kap-compact-note:focus-visible,
+.knowledge-atlas-plugin-view .kap-health-note:hover,
+.knowledge-atlas-plugin-view .kap-health-note:focus-visible {
+  background: rgba(91, 140, 255, .08);
   outline: none;
 }
 
-.kap-compact-note-title,
-.kap-compact-note-meta {
+.knowledge-atlas-plugin-view .kap-compact-note-title,
+.knowledge-atlas-plugin-view .kap-compact-note-meta {
   display: block;
   min-width: 0;
   overflow: hidden;
@@ -1557,19 +1557,19 @@ button.kap-heat-cell {
   white-space: nowrap;
 }
 
-.kap-compact-note-title {
+.knowledge-atlas-plugin-view .kap-compact-note-title {
   color: #cbd4f2;
   font-size: 9px;
   font-weight: 650;
 }
 
-.kap-compact-note-meta {
+.knowledge-atlas-plugin-view .kap-compact-note-meta {
   margin-top: 3px;
   color: #707da5;
   font: 7px "SFMono-Regular", Consolas, monospace;
 }
 
-.kap-heat-legend {
+.knowledge-atlas-plugin-view .kap-heat-legend {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -1579,65 +1579,65 @@ button.kap-heat-cell {
   font: 8px "SFMono-Regular", Consolas, monospace;
 }
 
-.kap-heat-legend .kap-heat-cell {
+.knowledge-atlas-plugin-view .kap-heat-legend .kap-heat-cell {
   width: 10px;
   height: 10px;
 }
 
-.kap-insights-lower {
+.knowledge-atlas-plugin-view .kap-insights-lower {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 350px;
   gap: 14px;
   align-items: start;
 }
 
-.kap-chart-grid {
+.knowledge-atlas-plugin-view .kap-chart-grid {
   display: grid;
   grid-template-columns: 1.35fr .9fr;
   gap: 22px;
   margin-top: 18px;
 }
 
-.kap-chart {
+.knowledge-atlas-plugin-view .kap-chart {
   min-width: 0;
 }
 
-.kap-chart + .kap-chart {
+.knowledge-atlas-plugin-view .kap-chart + .kap-chart {
   padding-left: 22px;
   border-left: 1px solid rgba(142, 160, 224, .12);
 }
 
-.kap-right-rail .kap-chart-grid {
+.knowledge-atlas-plugin-view .kap-right-rail .kap-chart-grid {
   grid-template-columns: 1fr;
   gap: 16px;
   margin-top: 14px;
 }
 
-.kap-right-rail .kap-chart + .kap-chart {
+.knowledge-atlas-plugin-view .kap-right-rail .kap-chart + .kap-chart {
   padding: 16px 0 0;
   border-top: 1px solid rgba(142, 160, 224, .12);
   border-left: 0;
 }
 
-.kap-right-rail .kap-bars {
+.knowledge-atlas-plugin-view .kap-right-rail .kap-bars {
   min-height: 158px;
 }
 
-.kap-right-rail .kap-bar-column {
+.knowledge-atlas-plugin-view .kap-right-rail .kap-bar-column {
   grid-template-rows: 16px 104px 20px;
 }
 
-.kap-right-rail .kap-bar-track {
+.knowledge-atlas-plugin-view .kap-right-rail .kap-bar-track {
   height: 96px;
 }
 
-.kap-chart-title {
+.knowledge-atlas-plugin-view .kap-chart-title {
   margin: 0 0 12px;
   color: #aab5da;
   font: 650 11px "SF Pro Text", sans-serif;
 }
 
-.kap-bars {
+.knowledge-atlas-plugin-view .kap-bars {
   display: grid;
   align-items: end;
   gap: 7px;
@@ -1646,10 +1646,10 @@ button.kap-heat-cell {
   scrollbar-width: thin;
 }
 
-.kap-bars-month { grid-template-columns: repeat(12, minmax(18px, 1fr)); }
-.kap-bars-week { grid-template-columns: repeat(7, minmax(20px, 1fr)); }
+.knowledge-atlas-plugin-view .kap-bars-month { grid-template-columns: repeat(12, minmax(18px, 1fr)); }
+.knowledge-atlas-plugin-view .kap-bars-week { grid-template-columns: repeat(7, minmax(20px, 1fr)); }
 
-.kap-bar-column {
+.knowledge-atlas-plugin-view .kap-bar-column {
   display: grid;
   grid-template-rows: 18px 128px 22px;
   align-items: end;
@@ -1657,8 +1657,8 @@ button.kap-heat-cell {
   text-align: center;
 }
 
-.kap-bar-value,
-.kap-bar-label {
+.knowledge-atlas-plugin-view .kap-bar-value,
+.knowledge-atlas-plugin-view .kap-bar-label {
   overflow: hidden;
   color: #7f8bb2;
   font: 8px "SFMono-Regular", Consolas, monospace;
@@ -1666,7 +1666,7 @@ button.kap-heat-cell {
   white-space: nowrap;
 }
 
-.kap-bar-track {
+.knowledge-atlas-plugin-view .kap-bar-track {
   position: relative;
   display: flex;
   height: 118px;
@@ -1676,7 +1676,7 @@ button.kap-heat-cell {
   background: linear-gradient(to top, rgba(113,132,202,.07), transparent);
 }
 
-.kap-bar-fill {
+.knowledge-atlas-plugin-view .kap-bar-fill {
   width: 100%;
   min-height: 2px;
   border-radius: 7px 7px 2px 2px;
@@ -1686,112 +1686,112 @@ button.kap-heat-cell {
   animation: kap-rise .55s cubic-bezier(.2,.75,.2,1) both;
 }
 
-.kap-bars-week .kap-bar-fill {
+.knowledge-atlas-plugin-view .kap-bars-week .kap-bar-fill {
   background: linear-gradient(to top, #a855f7, #f43f8e);
   box-shadow: 0 0 14px rgba(168,85,247,.22);
 }
 
-.kap-health-metrics {
+.knowledge-atlas-plugin-view .kap-health-metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
   margin-top: 13px;
 }
 
-.kap-health-metric {
-  display: grid !important;
-  min-width: 0 !important;
-  min-height: 58px !important;
-  margin: 0 !important;
-  padding: 8px 5px !important;
-  border: 1px solid rgba(137, 156, 222, .14) !important;
-  border-radius: 10px !important;
-  background: rgba(11, 16, 38, .68) !important;
-  box-shadow: none !important;
-  color: #8490b5 !important;
+.knowledge-atlas-plugin-view .kap-health-metric {
+  display: grid;
+  min-width: 0;
+  min-height: 58px;
+  margin: 0;
+  padding: 8px 5px;
+  border: 1px solid rgba(137, 156, 222, .14);
+  border-radius: 10px;
+  background: rgba(11, 16, 38, .68);
+  box-shadow: none;
+  color: #8490b5;
   text-align: left;
 }
 
-.kap-health-metric strong,
-.kap-health-metric span {
+.knowledge-atlas-plugin-view .kap-health-metric strong,
+.knowledge-atlas-plugin-view .kap-health-metric span {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.kap-health-metric strong {
+.knowledge-atlas-plugin-view .kap-health-metric strong {
   color: #fff;
   font: 750 18px "Avenir Next", sans-serif;
 }
 
-.kap-health-metric span {
+.knowledge-atlas-plugin-view .kap-health-metric span {
   margin-top: 2px;
   font-size: 7px;
 }
 
-.kap-health-metric:hover,
-.kap-health-metric:focus-visible,
-.kap-health-metric.is-active {
-  border-color: color-mix(in srgb, var(--kap-accent) 55%, transparent) !important;
-  background: color-mix(in srgb, var(--kap-accent) 10%, rgba(11,16,38,.76)) !important;
-  color: #cbd5f5 !important;
+.knowledge-atlas-plugin-view .kap-health-metric:hover,
+.knowledge-atlas-plugin-view .kap-health-metric:focus-visible,
+.knowledge-atlas-plugin-view .kap-health-metric.is-active {
+  border-color: color-mix(in srgb, var(--kap-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--kap-accent) 10%, rgba(11,16,38,.76));
+  color: #cbd5f5;
   outline: none;
 }
 
-.kap-health-empty {
+.knowledge-atlas-plugin-view .kap-health-empty {
   padding: 14px 4px;
   color: #7682a9;
   font-size: 9px;
   line-height: 1.5;
 }
 
-.kap-review-list {
+.knowledge-atlas-plugin-view .kap-review-list {
   display: grid;
   gap: 6px;
   margin-top: 12px;
 }
 
-.kap-review-note {
-  display: grid !important;
+.knowledge-atlas-plugin-view .kap-review-note {
+  display: grid;
   grid-template-columns: 28px minmax(0, 1fr);
   align-items: center;
   gap: 8px;
-  width: 100% !important;
-  min-height: 49px !important;
-  margin: 0 !important;
-  padding: 7px !important;
-  border: 1px solid rgba(137, 156, 222, .12) !important;
-  border-radius: 10px !important;
-  background: rgba(10, 15, 36, .64) !important;
-  box-shadow: none !important;
+  width: 100%;
+  min-height: 49px;
+  margin: 0;
+  padding: 7px;
+  border: 1px solid rgba(137, 156, 222, .12);
+  border-radius: 10px;
+  background: rgba(10, 15, 36, .64);
+  box-shadow: none;
   text-align: left;
 }
 
-.kap-review-note:hover,
-.kap-review-note:focus-visible {
-  border-color: rgba(91,140,255,.42) !important;
-  background: rgba(91,140,255,.09) !important;
+.knowledge-atlas-plugin-view .kap-review-note:hover,
+.knowledge-atlas-plugin-view .kap-review-note:focus-visible {
+  border-color: rgba(91,140,255,.42);
+  background: rgba(91,140,255,.09);
   outline: none;
 }
 
-.kap-review-index {
+.knowledge-atlas-plugin-view .kap-review-index {
   color: var(--kap-accent);
   font: 700 10px "SFMono-Regular", Consolas, monospace;
   text-align: center;
 }
 
-.kap-review-copy {
+.knowledge-atlas-plugin-view .kap-review-copy {
   min-width: 0;
 }
 
-.kap-temporal-stack {
+.knowledge-atlas-plugin-view .kap-temporal-stack {
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 14px;
 }
 
-.kap-clock-panel {
+.knowledge-atlas-plugin-view .kap-clock-panel {
   display: grid;
   place-items: center;
   min-height: 175px;
@@ -1801,13 +1801,13 @@ button.kap-heat-cell {
     rgba(8,12,30,.8);
 }
 
-.kap-clock-greeting {
+.knowledge-atlas-plugin-view .kap-clock-greeting {
   margin-top: 12px;
   color: #9ba7cd;
   font: 650 11px "SFMono-Regular", Consolas, monospace;
 }
 
-.kap-clock-time {
+.knowledge-atlas-plugin-view .kap-clock-time {
   display: block;
   margin: 2px 0;
   color: #f6f8ff;
@@ -1817,60 +1817,60 @@ button.kap-heat-cell {
   text-shadow: 0 0 24px color-mix(in srgb, var(--kap-accent) 28%, transparent);
 }
 
-.kap-clock-date {
+.knowledge-atlas-plugin-view .kap-clock-date {
   color: #a8b2d6;
   font-size: 11px;
 }
 
-.kap-calendar-nav {
+.knowledge-atlas-plugin-view .kap-calendar-nav {
   display: flex;
   gap: 6px;
 }
 
-.kap-calendar-nav-button,
-.kap-calendar-day {
-  display: grid !important;
+.knowledge-atlas-plugin-view .kap-calendar-nav-button,
+.knowledge-atlas-plugin-view .kap-calendar-day {
+  display: grid;
   place-items: center;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  color: #aab5d8 !important;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #aab5d8;
   cursor: pointer;
 }
 
-.kap-calendar-nav-button {
-  width: 31px !important;
-  height: 31px !important;
-  min-height: 0 !important;
-  border: 1px solid rgba(138,155,216,.16) !important;
-  border-radius: 9px !important;
-  background: rgba(92,108,165,.12) !important;
+.knowledge-atlas-plugin-view .kap-calendar-nav-button {
+  width: 31px;
+  height: 31px;
+  min-height: 0;
+  border: 1px solid rgba(138,155,216,.16);
+  border-radius: 9px;
+  background: rgba(92,108,165,.12);
   font-size: 20px;
 }
 
-.kap-calendar-nav-button:hover,
-.kap-calendar-nav-button:focus-visible {
-  border-color: var(--kap-accent) !important;
-  color: #fff !important;
+.knowledge-atlas-plugin-view .kap-calendar-nav-button:hover,
+.knowledge-atlas-plugin-view .kap-calendar-nav-button:focus-visible {
+  border-color: var(--kap-accent);
+  color: #fff;
   outline: none;
 }
 
-.kap-calendar-month {
+.knowledge-atlas-plugin-view .kap-calendar-month {
   margin: 12px 0 9px;
   color: #d8def5;
   font: 650 12px "SFMono-Regular", Consolas, monospace;
   text-align: center;
 }
 
-.kap-calendar-grid {
+.knowledge-atlas-plugin-view .kap-calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 3px;
 }
 
-.kap-calendar-weekday {
+.knowledge-atlas-plugin-view .kap-calendar-weekday {
   display: grid;
   place-items: center;
   height: 22px;
@@ -1878,23 +1878,23 @@ button.kap-heat-cell {
   font: 8px "SFMono-Regular", Consolas, monospace;
 }
 
-.kap-calendar-day {
+.knowledge-atlas-plugin-view .kap-calendar-day {
   position: relative;
-  height: 29px !important;
-  min-height: 0 !important;
-  border-radius: 9px !important;
+  height: 29px;
+  min-height: 0;
+  border-radius: 9px;
   font: 650 10px "SFMono-Regular", Consolas, monospace;
 }
 
-.kap-calendar-day:hover,
-.kap-calendar-day:focus-visible {
-  background: rgba(91,140,255,.13) !important;
-  color: #fff !important;
+.knowledge-atlas-plugin-view .kap-calendar-day:hover,
+.knowledge-atlas-plugin-view .kap-calendar-day:focus-visible {
+  background: rgba(91,140,255,.13);
+  color: #fff;
   outline: none;
 }
 
-.kap-calendar-day.is-outside { opacity: .24; }
-.kap-calendar-day.has-activity::after {
+.knowledge-atlas-plugin-view .kap-calendar-day.is-outside { opacity: .24; }
+.knowledge-atlas-plugin-view .kap-calendar-day.has-activity::after {
   content: "";
   position: absolute;
   bottom: 3px;
@@ -1905,11 +1905,11 @@ button.kap-heat-cell {
   box-shadow: 0 0 6px #22d3ee;
 }
 
-.kap-calendar-day.is-today {
-  border: 1px solid #8ca9ff !important;
-  background: rgba(91,140,255,.16) !important;
-  color: #fff !important;
-  box-shadow: inset 0 0 0 2px rgba(91,140,255,.1) !important;
+.knowledge-atlas-plugin-view .kap-calendar-day.is-today {
+  border: 1px solid #8ca9ff;
+  background: rgba(91,140,255,.16);
+  color: #fff;
+  box-shadow: inset 0 0 0 2px rgba(91,140,255,.1);
 }
 
 @keyframes kap-rise {
@@ -1942,37 +1942,37 @@ button.kap-heat-cell {
 }
 
 @media (max-width: 1050px) {
-  .kap-root { padding: 18px; }
-  .kap-body { grid-template-columns: 1fr; }
-  .kap-stage, .kap-graph, .kap-empty { min-height: 900px; }
-  .kap-dock { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-  .kap-heatmap-panel, .kap-trajectory-panel { grid-column: 1 / -1; }
-  .kap-recent-panel { grid-column: 1 / -1; }
-  .kap-recent-list { grid-template-columns: 1fr 1fr; column-gap: 12px; }
-  .kap-insights-lower { grid-template-columns: 1fr; }
-  .kap-temporal-stack { grid-template-columns: minmax(260px, .7fr) minmax(320px, 1fr); grid-template-rows: 1fr; }
+  .knowledge-atlas-plugin-view .kap-root { padding: 18px; }
+  .knowledge-atlas-plugin-view .kap-body { grid-template-columns: 1fr; }
+  .knowledge-atlas-plugin-view .kap-stage, .kap-graph, .kap-empty { min-height: 900px; }
+  .knowledge-atlas-plugin-view .kap-dock { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .knowledge-atlas-plugin-view .kap-heatmap-panel, .kap-trajectory-panel { grid-column: 1 / -1; }
+  .knowledge-atlas-plugin-view .kap-recent-panel { grid-column: 1 / -1; }
+  .knowledge-atlas-plugin-view .kap-recent-list { grid-template-columns: 1fr 1fr; column-gap: 12px; }
+  .knowledge-atlas-plugin-view .kap-insights-lower { grid-template-columns: 1fr; }
+  .knowledge-atlas-plugin-view .kap-temporal-stack { grid-template-columns: minmax(260px, .7fr) minmax(320px, 1fr); grid-template-rows: 1fr; }
 }
 
 @media (max-width: 720px) {
-  .kap-root { padding: 14px; }
-  .kap-header, .kap-toolbar { grid-template-columns: 1fr; }
-  .kap-stats { grid-template-columns: repeat(3, 1fr); }
-  .kap-controls { overflow-x: auto; }
-  .kap-button { flex: 0 0 auto; }
-  .kap-stage, .kap-graph, .kap-empty { min-height: 680px; }
-  .kap-dock { grid-template-columns: 1fr; }
-  .kap-recent-panel { grid-column: auto; }
-  .kap-recent-list { grid-template-columns: 1fr; }
-  .kap-view-hint { display: none; }
-  .kap-insight-panel { padding: 15px; }
-  .kap-insight-header { display: grid; }
-  .kap-insight-meta { max-width: none; text-align: left; }
-  .kap-chart-grid { grid-template-columns: 1fr; }
-  .kap-chart + .kap-chart { padding: 18px 0 0; border-top: 1px solid rgba(142, 160, 224, .12); border-left: 0; }
-  .kap-temporal-stack { grid-template-columns: 1fr; }
-  .kap-clock-time { font-size: 36px; }
+  .knowledge-atlas-plugin-view .kap-root { padding: 14px; }
+  .knowledge-atlas-plugin-view .kap-header, .kap-toolbar { grid-template-columns: 1fr; }
+  .knowledge-atlas-plugin-view .kap-stats { grid-template-columns: repeat(3, 1fr); }
+  .knowledge-atlas-plugin-view .kap-controls { overflow-x: auto; }
+  .knowledge-atlas-plugin-view .kap-button { flex: 0 0 auto; }
+  .knowledge-atlas-plugin-view .kap-stage, .kap-graph, .kap-empty { min-height: 680px; }
+  .knowledge-atlas-plugin-view .kap-dock { grid-template-columns: 1fr; }
+  .knowledge-atlas-plugin-view .kap-recent-panel { grid-column: auto; }
+  .knowledge-atlas-plugin-view .kap-recent-list { grid-template-columns: 1fr; }
+  .knowledge-atlas-plugin-view .kap-view-hint { display: none; }
+  .knowledge-atlas-plugin-view .kap-insight-panel { padding: 15px; }
+  .knowledge-atlas-plugin-view .kap-insight-header { display: grid; }
+  .knowledge-atlas-plugin-view .kap-insight-meta { max-width: none; text-align: left; }
+  .knowledge-atlas-plugin-view .kap-chart-grid { grid-template-columns: 1fr; }
+  .knowledge-atlas-plugin-view .kap-chart + .kap-chart { padding: 18px 0 0; border-top: 1px solid rgba(142, 160, 224, .12); border-left: 0; }
+  .knowledge-atlas-plugin-view .kap-temporal-stack { grid-template-columns: 1fr; }
+  .knowledge-atlas-plugin-view .kap-clock-time { font-size: 36px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .knowledge-atlas-plugin-view * { animation: none !important; transition-duration: .01ms !important; }
+  .knowledge-atlas-plugin-view * { animation: none; transition-duration: .01ms; }
 }

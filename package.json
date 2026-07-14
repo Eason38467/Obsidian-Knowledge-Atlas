@@ -1,6 +1,6 @@
 {
   "name": "knowledge-atlas",
-  "version": "1.11.1",
+  "version": "1.11.2",
   "description": "Explore every Markdown note in your vault as an interactive, searchable knowledge map.",
   "main": "main.js",
   "type": "module",
