@@ -15,7 +15,7 @@
 
 Knowledge Atlas 是一款面向 [Obsidian](https://obsidian.md/) 的可视化导航与知识回顾插件。它通过 Obsidian 原生 API 读取 Markdown 笔记，将 Vault 展示为动态星系、层级树以及一组活跃度和知识健康面板。不依赖 Dataview，不生成机械索引笔记，也不需要网络服务。
 
-> **当前状态：** 插件目前采用手动安装，尚未进入 Obsidian Community Plugins 官方目录。
+> **当前状态：** Knowledge Atlas 已进入 Obsidian Community Plugins 官方目录，也支持通过 GitHub Releases 手动安装。
 
 ## 功能截图
 

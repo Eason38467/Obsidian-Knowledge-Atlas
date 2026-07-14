@@ -15,7 +15,7 @@
 
 Knowledge Atlas is a visual navigation and review plugin for [Obsidian](https://obsidian.md/). It reads Markdown files through Obsidian's native API and presents the vault as an animated galaxy, a structured tree, and a set of activity and knowledge-health panels. It does not require Dataview, generated index notes, or a network service.
 
-> **Availability:** the plugin is currently installed manually. It has not yet been listed in Obsidian's Community Plugins directory.
+> **Availability:** Knowledge Atlas is available from Obsidian's Community Plugins directory. Manual installation from GitHub Releases is also supported.
 
 ## Screenshots
 
