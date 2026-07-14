@@ -5,9 +5,12 @@
 }
 
 .knowledge-atlas-plugin-view {
+  --kap-font-sans: Inter, "Noto Sans SC", "Microsoft YaHei UI", "PingFang SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --kap-font-display: Inter, "Noto Sans SC", "Microsoft YaHei UI", "PingFang SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --kap-font-mono: ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   min-height: 100%;
   color: #f2f5ff;
-  font-family: Inter, "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--kap-font-sans);
 }
 
 .knowledge-atlas-plugin-view * {
@@ -58,7 +61,7 @@
 .knowledge-atlas-plugin-view .kap-kicker,
 .knowledge-atlas-plugin-view .kap-panel-kicker {
   color: var(--kap-accent);
-  font: 700 10px "SFMono-Regular", Consolas, monospace;
+  font: 700 10px var(--kap-font-mono);
   letter-spacing: .17em;
   text-transform: uppercase;
 }
@@ -66,7 +69,7 @@
 .knowledge-atlas-plugin-view .kap-title {
   margin: 7px 0 0;
   color: #fff;
-  font: 750 clamp(32px, 4vw, 56px)/1 "Avenir Next", "SF Pro Display", sans-serif;
+  font: 750 clamp(32px, 4vw, 56px)/1 var(--kap-font-display);
   letter-spacing: -.045em;
 }
 
@@ -99,14 +102,14 @@
 
 .knowledge-atlas-plugin-view .kap-stat-value {
   color: #fff;
-  font: 750 20px "Avenir Next", sans-serif;
+  font: 750 20px var(--kap-font-display);
   font-variant-numeric: tabular-nums;
 }
 
 .knowledge-atlas-plugin-view .kap-stat-label {
   margin-top: 2px;
   color: var(--kap-muted);
-  font: 9px "SFMono-Regular", monospace;
+  font: 9px var(--kap-font-mono);
   letter-spacing: .1em;
   text-transform: uppercase;
 }
@@ -272,7 +275,7 @@
 .knowledge-atlas-plugin-view .kap-recent-date,
 .knowledge-atlas-plugin-view .kap-search-empty {
   color: #7580a7;
-  font: 8px "SFMono-Regular", monospace;
+  font: 8px var(--kap-font-mono);
 }
 
 .knowledge-atlas-plugin-view .kap-search-empty {
@@ -396,7 +399,7 @@
 .knowledge-atlas-plugin-view .kap-breadcrumbs,
 .knowledge-atlas-plugin-view .kap-view-hint {
   color: var(--kap-muted);
-  font: 9px "SFMono-Regular", monospace;
+  font: 9px var(--kap-font-mono);
   white-space: nowrap;
 }
 
@@ -848,7 +851,7 @@
 
 .knowledge-atlas-plugin-view .kap-label {
   fill: #cfd7f5;
-  font: 10px "SF Pro Text", sans-serif;
+  font: 10px var(--kap-font-sans);
   paint-order: stroke;
   stroke: rgba(6,8,22,.9);
   stroke-width: 3px;
@@ -937,7 +940,7 @@
   bottom: 11px;
   left: 16px;
   color: #66719a;
-  font: 8px "SFMono-Regular", monospace;
+  font: 8px var(--kap-font-mono);
   text-align: center;
   pointer-events: none;
 }
@@ -973,7 +976,7 @@
 }
 
 .knowledge-atlas-plugin-view .kap-zoom-button {
-  font: 700 15px "SFMono-Regular", monospace;
+  font: 700 15px var(--kap-font-mono);
   cursor: pointer;
 }
 
@@ -984,7 +987,7 @@
 
 .knowledge-atlas-plugin-view .kap-zoom-value {
   color: #e4e9ff;
-  font: 9px "SFMono-Regular", monospace;
+  font: 9px var(--kap-font-mono);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1051,7 +1054,7 @@
   background: transparent;
   color: #dce4ff;
   box-shadow: none;
-  font: 750 11px "SFMono-Regular", monospace;
+  font: 750 11px var(--kap-font-mono);
   cursor: pointer;
 }
 
@@ -1075,7 +1078,7 @@
 .knowledge-atlas-plugin-view .kap-motion-label,
 .knowledge-atlas-plugin-view .kap-motion-value {
   color: #9eabd2;
-  font: 8px "SFMono-Regular", Consolas, monospace;
+  font: 8px var(--kap-font-mono);
   white-space: nowrap;
 }
 
@@ -1110,7 +1113,7 @@
   border-radius: 999px;
   background: rgba(7, 10, 27, .94);
   color: #d7def7;
-  font: 9px "SFMono-Regular", Consolas, monospace;
+  font: 9px var(--kap-font-mono);
   white-space: nowrap;
   box-shadow: 0 10px 28px rgba(0, 0, 0, .34);
   transform: translateX(-50%);
@@ -1139,7 +1142,7 @@
   top: 7px;
   left: 7px;
   border-radius: 9px;
-  font: 800 15px/1 "SFMono-Regular", monospace;
+  font: 800 15px/1 var(--kap-font-mono);
   cursor: grab;
 }
 
@@ -1245,7 +1248,7 @@
   margin: 7px 0 0;
   overflow-wrap: anywhere;
   color: #fff;
-  font: 700 17px/1.25 "Avenir Next", sans-serif;
+  font: 700 17px/1.25 var(--kap-font-display);
 }
 
 .knowledge-atlas-plugin-view .kap-panel-meta {
@@ -1382,14 +1385,14 @@
 .knowledge-atlas-plugin-view .kap-insight-title {
   margin: 6px 0 0;
   color: #f7f9ff;
-  font: 700 18px/1.2 "Avenir Next", "SF Pro Display", sans-serif;
+  font: 700 18px/1.2 var(--kap-font-display);
   letter-spacing: -.015em;
 }
 
 .knowledge-atlas-plugin-view .kap-insight-meta {
   max-width: 50%;
   color: var(--kap-muted);
-  font: 9px/1.5 "SFMono-Regular", Consolas, monospace;
+  font: 9px/1.5 var(--kap-font-mono);
   text-align: right;
 }
 
@@ -1432,7 +1435,7 @@
 .knowledge-atlas-plugin-view .kap-heatmap-months {
   height: 20px;
   color: #8994bb;
-  font: 8px "SFMono-Regular", Consolas, monospace;
+  font: 8px var(--kap-font-mono);
 }
 
 .knowledge-atlas-plugin-view .kap-heatmap-months span {
@@ -1501,7 +1504,7 @@
   justify-content: space-between;
   gap: 10px;
   color: #d9e0f8;
-  font: 9px "SFMono-Regular", Consolas, monospace;
+  font: 9px var(--kap-font-mono);
 }
 
 .knowledge-atlas-plugin-view .kap-day-detail-heading span {
@@ -1540,7 +1543,7 @@
 .knowledge-atlas-plugin-view .kap-day-overflow {
   margin-top: 7px;
   color: #7885ad;
-  font: 8px/1.5 "SFMono-Regular", Consolas, monospace;
+  font: 8px/1.5 var(--kap-font-mono);
 }
 
 .knowledge-atlas-plugin-view .kap-compact-note:hover,
@@ -1572,7 +1575,7 @@
   width: 100%;
   margin-top: 3px;
   color: #707da5;
-  font: 8px "SFMono-Regular", Consolas, monospace;
+  font: 8px var(--kap-font-mono);
   text-align: left;
 }
 
@@ -1583,7 +1586,7 @@
   gap: 5px;
   margin-top: 8px;
   color: #7d88ae;
-  font: 8px "SFMono-Regular", Consolas, monospace;
+  font: 8px var(--kap-font-mono);
 }
 
 .knowledge-atlas-plugin-view .kap-heat-legend .kap-heat-cell {
@@ -1641,7 +1644,7 @@
 .knowledge-atlas-plugin-view .kap-chart-title {
   margin: 0 0 12px;
   color: #aab5da;
-  font: 650 11px "SF Pro Text", sans-serif;
+  font: 650 11px var(--kap-font-sans);
 }
 
 .knowledge-atlas-plugin-view .kap-bars {
@@ -1668,7 +1671,7 @@
 .knowledge-atlas-plugin-view .kap-bar-label {
   overflow: hidden;
   color: #7f8bb2;
-  font: 8px "SFMono-Regular", Consolas, monospace;
+  font: 8px var(--kap-font-mono);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1734,7 +1737,7 @@
 
 .knowledge-atlas-plugin-view .kap-health-metric strong {
   color: #fff;
-  font: 750 18px "Avenir Next", sans-serif;
+  font: 750 18px var(--kap-font-display);
 }
 
 .knowledge-atlas-plugin-view .kap-health-metric span {
@@ -1796,7 +1799,7 @@
 .knowledge-atlas-plugin-view .kap-review-index {
   justify-self: start;
   color: var(--kap-accent);
-  font: 700 10px "SFMono-Regular", Consolas, monospace;
+  font: 700 10px var(--kap-font-mono);
   text-align: left;
 }
 
@@ -1826,14 +1829,14 @@
 .knowledge-atlas-plugin-view .kap-clock-greeting {
   margin-top: 12px;
   color: #9ba7cd;
-  font: 650 11px "SFMono-Regular", Consolas, monospace;
+  font: 650 11px var(--kap-font-mono);
 }
 
 .knowledge-atlas-plugin-view .kap-clock-time {
   display: block;
   margin: 2px 0;
   color: #f6f8ff;
-  font: 750 42px/1 "Avenir Next", "SF Pro Display", sans-serif;
+  font: 750 42px/1 var(--kap-font-display);
   font-variant-numeric: tabular-nums;
   letter-spacing: -.04em;
   text-shadow: 0 0 24px color-mix(in srgb, var(--kap-accent) 28%, transparent);
@@ -1882,7 +1885,7 @@
 .knowledge-atlas-plugin-view .kap-calendar-month {
   margin: 12px 0 9px;
   color: #d8def5;
-  font: 650 12px "SFMono-Regular", Consolas, monospace;
+  font: 650 12px var(--kap-font-mono);
   text-align: center;
 }
 
@@ -1897,7 +1900,7 @@
   place-items: center;
   height: 22px;
   color: #657097;
-  font: 8px "SFMono-Regular", Consolas, monospace;
+  font: 8px var(--kap-font-mono);
 }
 
 .knowledge-atlas-plugin-view .kap-calendar-day {
@@ -1905,7 +1908,7 @@
   height: 29px;
   min-height: 0;
   border-radius: 9px;
-  font: 650 10px "SFMono-Regular", Consolas, monospace;
+  font: 650 10px var(--kap-font-mono);
 }
 
 .knowledge-atlas-plugin-view .kap-calendar-day:hover,
@@ -1932,6 +1935,69 @@
   background: rgba(91,140,255,.16);
   color: #fff;
   box-shadow: inset 0 0 0 2px rgba(91,140,255,.1);
+}
+
+/* Keep interactive surfaces stable across Obsidian themes and operating systems. */
+.knowledge-atlas-plugin-view button[class^="kap-"],
+.knowledge-atlas-plugin-view button[class*=" kap-"] {
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: var(--kap-font-sans);
+  box-shadow: none;
+}
+
+.knowledge-atlas-plugin-view button.kap-button {
+  border: 1px solid var(--kap-line);
+  background: rgba(13, 18, 42, .76);
+}
+
+.knowledge-atlas-plugin-view button.kap-button:hover:not(:disabled),
+.knowledge-atlas-plugin-view button.kap-button:focus-visible,
+.knowledge-atlas-plugin-view button.kap-button.is-active {
+  border-color: color-mix(in srgb, var(--kap-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--kap-accent) 14%, rgba(13, 18, 42, .8));
+  color: #fff;
+}
+
+.knowledge-atlas-plugin-view button.kap-calendar-nav-button {
+  border: 1px solid rgba(138, 155, 216, .16);
+  background: rgba(92, 108, 165, .12);
+}
+
+.knowledge-atlas-plugin-view button.kap-calendar-day,
+.knowledge-atlas-plugin-view button.kap-health-note,
+.knowledge-atlas-plugin-view button.kap-review-note,
+.knowledge-atlas-plugin-view button.kap-recent,
+.knowledge-atlas-plugin-view button.kap-compact-note {
+  background: transparent;
+}
+
+.knowledge-atlas-plugin-view button.kap-health-metric {
+  background: rgba(11, 16, 38, .68);
+}
+
+.knowledge-atlas-plugin-view button.kap-health-metric:hover,
+.knowledge-atlas-plugin-view button.kap-health-metric:focus-visible,
+.knowledge-atlas-plugin-view button.kap-health-metric.is-active {
+  background: color-mix(in srgb, var(--kap-accent) 10%, rgba(11, 16, 38, .76));
+}
+
+.knowledge-atlas-plugin-view button.kap-calendar-day:hover,
+.knowledge-atlas-plugin-view button.kap-calendar-day:focus-visible,
+.knowledge-atlas-plugin-view button.kap-health-note:hover,
+.knowledge-atlas-plugin-view button.kap-health-note:focus-visible,
+.knowledge-atlas-plugin-view button.kap-review-note:hover,
+.knowledge-atlas-plugin-view button.kap-review-note:focus-visible,
+.knowledge-atlas-plugin-view button.kap-recent:hover,
+.knowledge-atlas-plugin-view button.kap-recent:focus-visible,
+.knowledge-atlas-plugin-view button.kap-compact-note:hover,
+.knowledge-atlas-plugin-view button.kap-compact-note:focus-visible {
+  background: rgba(91, 140, 255, .09);
+}
+
+.knowledge-atlas-plugin-view button.kap-calendar-day.is-today {
+  background: rgba(91, 140, 255, .16);
+  box-shadow: inset 0 0 0 2px rgba(91, 140, 255, .1);
 }
 
 @keyframes kap-rise {
