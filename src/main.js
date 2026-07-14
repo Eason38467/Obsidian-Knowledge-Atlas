@@ -54,11 +54,11 @@ const DEFAULT_DASHBOARD_LAYOUT = {
     clock: { x: 1120, y: 0, width: 380, height: 176, z: 3 },
     calendar: { x: 1120, y: 190, width: 380, height: 312, z: 4 },
     legend: { x: 1120, y: 516, width: 380, height: 150, z: 5 },
-    heatmap: { x: 1120, y: 680, width: 380, height: 374, z: 6 },
-    trajectory: { x: 1120, y: 1068, width: 380, height: 448, z: 7 },
-    health: { x: 0, y: 1096, width: 368, height: 408, z: 8 },
-    review: { x: 382, y: 1096, width: 352, height: 264, z: 9 },
-    recent: { x: 748, y: 1096, width: 358, height: 388, z: 10 }
+    heatmap: { x: 1120, y: 680, width: 380, height: 280, z: 6 },
+    trajectory: { x: 1120, y: 976, width: 380, height: 512, z: 7 },
+    health: { x: 0, y: 1096, width: 368, height: 392, z: 8 },
+    review: { x: 382, y: 1096, width: 352, height: 392, z: 9 },
+    recent: { x: 748, y: 1096, width: 358, height: 392, z: 10 }
   }
 };
 

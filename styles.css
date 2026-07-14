@@ -1520,6 +1520,7 @@
 .knowledge-atlas-plugin-view .kap-compact-note,
 .knowledge-atlas-plugin-view .kap-health-note {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   width: 100%;
   min-height: 0;
   margin: 0;
@@ -1530,7 +1531,9 @@
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-  justify-items: start;
+  align-content: center;
+  justify-content: stretch;
+  justify-items: stretch;
   text-align: left;
 }
 
@@ -1558,15 +1561,19 @@
 }
 
 .knowledge-atlas-plugin-view .kap-compact-note-title {
+  width: 100%;
   color: #cbd4f2;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 650;
+  text-align: left;
 }
 
 .knowledge-atlas-plugin-view .kap-compact-note-meta {
+  width: 100%;
   margin-top: 3px;
   color: #707da5;
-  font: 7px "SFMono-Regular", Consolas, monospace;
+  font: 8px "SFMono-Regular", Consolas, monospace;
+  text-align: left;
 }
 
 .knowledge-atlas-plugin-view .kap-heat-legend {
@@ -1709,13 +1716,18 @@
   background: rgba(11, 16, 38, .68);
   box-shadow: none;
   color: #8490b5;
+  align-content: center;
+  justify-content: stretch;
+  justify-items: start;
   text-align: left;
 }
 
 .knowledge-atlas-plugin-view .kap-health-metric strong,
 .knowledge-atlas-plugin-view .kap-health-metric span {
   display: block;
+  width: 100%;
   overflow: hidden;
+  text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1748,8 +1760,8 @@
 
 .knowledge-atlas-plugin-view .kap-review-list {
   display: grid;
-  gap: 6px;
-  margin-top: 12px;
+  gap: 0;
+  margin-top: 9px;
 }
 
 .knowledge-atlas-plugin-view .kap-review-note {
@@ -1758,31 +1770,41 @@
   align-items: center;
   gap: 8px;
   width: 100%;
-  min-height: 49px;
+  min-height: 40px;
   margin: 0;
-  padding: 7px;
-  border: 1px solid rgba(137, 156, 222, .12);
-  border-radius: 10px;
-  background: rgba(10, 15, 36, .64);
+  padding: 7px 2px;
+  border: 0;
+  border-bottom: 1px solid rgba(139, 157, 220, .1);
+  border-radius: 0;
+  background: transparent;
   box-shadow: none;
+  justify-content: stretch;
+  justify-items: stretch;
   text-align: left;
 }
 
 .knowledge-atlas-plugin-view .kap-review-note:hover,
 .knowledge-atlas-plugin-view .kap-review-note:focus-visible {
-  border-color: rgba(91,140,255,.42);
   background: rgba(91,140,255,.09);
   outline: none;
 }
 
+.knowledge-atlas-plugin-view .kap-review-note:last-child {
+  border-bottom: 0;
+}
+
 .knowledge-atlas-plugin-view .kap-review-index {
+  justify-self: start;
   color: var(--kap-accent);
   font: 700 10px "SFMono-Regular", Consolas, monospace;
-  text-align: center;
+  text-align: left;
 }
 
 .knowledge-atlas-plugin-view .kap-review-copy {
+  display: grid;
   min-width: 0;
+  justify-items: stretch;
+  text-align: left;
 }
 
 .knowledge-atlas-plugin-view .kap-temporal-stack {
