@@ -1,11 +1,11 @@
-const {
+import {
   addIcon,
   ItemView,
   Plugin,
   PluginSettingTab,
   Setting,
   TFile
-} = require("obsidian");
+} from "obsidian";
 
 const VIEW_TYPE = "knowledge-atlas-view";
 const ROOT_NOTES = "@root-notes";
@@ -66,7 +66,7 @@ function cloneDefaultDashboardLayout() {
   return JSON.parse(JSON.stringify(DEFAULT_DASHBOARD_LAYOUT));
 }
 const DEFAULT_SETTINGS = {
-  excludedFolders: [".obsidian", ".trash", "Templates", "assets"],
+  excludedFolders: [".trash", "Templates", "assets"],
   maxFolders: 48,
   maxNotes: 54,
   sampleNotes: 18,
@@ -1068,7 +1068,7 @@ class KnowledgeAtlasView extends ItemView {
     const startY = event.clientY;
     item.element.style.zIndex = String(++this.layoutZCounter);
     item.element.classList.add("is-layout-interacting");
-    try { handle.setPointerCapture?.(event.pointerId); } catch (_) { /* Synthetic events may not own a pointer capture. */ }
+    try { handle.setPointerCapture?.(event.pointerId); } catch { /* Synthetic events may not own a pointer capture. */ }
     const move = pointerEvent => {
       const dx = pointerEvent.clientX - startX;
       const dy = pointerEvent.clientY - startY;
@@ -1087,7 +1087,7 @@ class KnowledgeAtlasView extends ItemView {
     const finish = async pointerEvent => {
       try {
         if (handle.hasPointerCapture?.(pointerEvent.pointerId)) handle.releasePointerCapture(pointerEvent.pointerId);
-      } catch (_) { /* The pointer may already be released. */ }
+      } catch { /* The pointer may already be released. */ }
       handle.removeEventListener("pointermove", move);
       handle.removeEventListener("pointerup", finish);
       handle.removeEventListener("pointercancel", finish);
@@ -2418,7 +2418,7 @@ class KnowledgeAtlasSettingTab extends PluginSettingTab {
       .setName(copy.settingsExcluded)
       .setDesc(copy.settingsExcludedDesc)
       .addText(text => text
-        .setPlaceholder(".obsidian, .trash, Templates, assets")
+        .setPlaceholder("Folder, nested/folder")
         .setValue(this.plugin.settings.excludedFolders.join(", "))
         .onChange(async value => {
           this.plugin.settings.excludedFolders = value.split(",").map(item => item.trim()).filter(Boolean);
@@ -2462,16 +2462,16 @@ class KnowledgeAtlasSettingTab extends PluginSettingTab {
   }
 }
 
-module.exports = class KnowledgeAtlasPlugin extends Plugin {
+export default class KnowledgeAtlasPlugin extends Plugin {
   async onload() {
     const savedSettings = await this.loadData();
     this.settings = Object.assign({}, DEFAULT_SETTINGS, savedSettings);
     if (!this.settings.dashboardLayout?.items) this.settings.dashboardLayout = cloneDefaultDashboardLayout();
     addIcon(ICON_ID, ICON_SVG);
     this.registerView(VIEW_TYPE, leaf => new KnowledgeAtlasView(leaf, this));
-    this.addRibbonIcon(ICON_ID, "Open Knowledge Atlas", () => this.activateView());
-    this.addCommand({ id: "open-knowledge-atlas", name: "Open Knowledge Atlas", callback: () => this.activateView() });
-    this.addCommand({ id: "refresh-knowledge-atlas", name: "Refresh Knowledge Atlas", callback: () => this.refreshViews() });
+    this.addRibbonIcon(ICON_ID, "Open knowledge atlas", () => this.activateView());
+    this.addCommand({ id: "open-atlas", name: "Open atlas", callback: () => this.activateView() });
+    this.addCommand({ id: "refresh-atlas", name: "Refresh atlas", callback: () => this.refreshViews() });
     this.addSettingTab(new KnowledgeAtlasSettingTab(this.app, this));
     this.app.workspace.onLayoutReady(() => {
       if (this.settings.openOnStartup) this.activateView();
@@ -2484,7 +2484,6 @@ module.exports = class KnowledgeAtlasPlugin extends Plugin {
 
   onunload() {
     if (this.refreshTimer) window.clearTimeout(this.refreshTimer);
-    this.app.workspace.detachLeavesOfType(VIEW_TYPE);
   }
 
   async activateView() {

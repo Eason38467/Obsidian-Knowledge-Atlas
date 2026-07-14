@@ -4,7 +4,7 @@
 
 **Turn your Obsidian vault into a living, interactive knowledge galaxy.**
 
-[![Version](https://img.shields.io/badge/version-1.11.0-8b5cf6?style=flat-square)](releases/knowledge-atlas-1.11.0.zip)
+[![Version](https://img.shields.io/badge/version-1.11.1-8b5cf6?style=flat-square)](releases/knowledge-atlas-1.11.1.zip)
 [![Obsidian](https://img.shields.io/badge/Obsidian-1.5.0%2B-7c3aed?style=flat-square&logo=obsidian)](https://obsidian.md/)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)](LICENSE)
 [![Local only](https://img.shields.io/badge/data-local%20only-06b6d4?style=flat-square)](#privacy)
@@ -61,7 +61,7 @@ The overview intentionally stops at the second folder level so a large vault rem
 
 ### Install the packaged version
 
-1. Download [`knowledge-atlas-1.11.0.zip`](releases/knowledge-atlas-1.11.0.zip).
+1. Download [`knowledge-atlas-1.11.1.zip`](releases/knowledge-atlas-1.11.1.zip).
 2. Extract it. The archive contains a folder named `knowledge-atlas`.
 3. Copy that folder into your vault:
 
@@ -72,9 +72,16 @@ The overview intentionally stops at the second folder level so a large vault rem
 4. In Obsidian, open **Settings → Community plugins**.
 5. Select **Reload installed plugins** if Knowledge Atlas is not shown, then enable **Knowledge Atlas**.
 
-### Install from source files
+### Build from source
 
-Create `<your-vault>/.obsidian/plugins/knowledge-atlas/` and copy these files from the repository root into it:
+Clone the repository, then build the release file:
+
+```bash
+npm install
+npm run build
+```
+
+Create `<your-vault>/.obsidian/plugins/knowledge-atlas/` and copy these generated/runtime files into it:
 
 ```text
 main.js
@@ -87,7 +94,7 @@ styles.css
 ## Open and use the atlas
 
 - Select the Knowledge Atlas ribbon icon.
-- Or run **Knowledge Atlas: Open Knowledge Atlas** from the command palette.
+- Or run **Knowledge Atlas: Open atlas** from the command palette.
 - Select a planet or moon to drill into a folder.
 - Select a note node, search result, heatmap day, health result, or review card to open the corresponding note.
 
@@ -138,16 +145,17 @@ Knowledge Atlas runs locally inside Obsidian. It does not upload vault content, 
 
 ## Development and releases
 
-This repository ships compiled plugin files directly and currently has no build step.
+The readable source is in `src/main.js`. The production bundle is generated with esbuild and is attached to GitHub Releases rather than tracked in the repository.
 
 Before publishing a version to GitHub Releases or submitting it to the Obsidian Community Plugins directory:
 
 1. Update `version` in `manifest.json`.
 2. Add the version mapping to `versions.json`.
-3. Verify `main.js` with `node --check main.js`.
-4. Test the plugin in Obsidian and check developer errors.
-5. Create a GitHub release whose tag exactly matches the manifest version.
-6. Attach `main.js`, `manifest.json`, and `styles.css` to the release.
+3. Run `npm run lint` and `npm run build`.
+4. Verify the generated bundle with `node --check main.js`.
+5. Test the plugin in Obsidian and check developer errors.
+6. Create a GitHub release whose tag exactly matches the manifest version.
+7. Attach `main.js`, `manifest.json`, and `styles.css` to the release.
 
 ## Contributing
 

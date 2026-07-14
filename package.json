@@ -1,0 +1,27 @@
+{
+  "name": "knowledge-atlas",
+  "version": "1.11.1",
+  "description": "Explore every Markdown note in your vault as an interactive, searchable knowledge map.",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "node esbuild.config.mjs production",
+    "lint": "eslint src"
+  },
+  "keywords": [
+    "obsidian",
+    "knowledge-graph",
+    "visualization"
+  ],
+  "author": "Eason38467",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^9.39.4",
+    "eslint-plugin-obsidianmd": "^0.4.0",
+    "esbuild": "^0.25.5",
+    "globals": "^17.6.1",
+    "jiti": "^2.6.1",
+    "obsidian": "latest"
+  }
+}
