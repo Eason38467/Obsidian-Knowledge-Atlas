@@ -4,7 +4,7 @@
 
 **Turn your Obsidian vault into a living, interactive knowledge galaxy.**
 
-[![Version](https://img.shields.io/badge/version-1.10.0-8b5cf6?style=flat-square)](releases/knowledge-atlas-1.10.0.zip)
+[![Version](https://img.shields.io/badge/version-1.11.0-8b5cf6?style=flat-square)](releases/knowledge-atlas-1.11.0.zip)
 [![Obsidian](https://img.shields.io/badge/Obsidian-1.5.0%2B-7c3aed?style=flat-square&logo=obsidian)](https://obsidian.md/)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)](LICENSE)
 [![Local only](https://img.shields.io/badge/data-local%20only-06b6d4?style=flat-square)](#privacy)
@@ -34,8 +34,9 @@ The screenshots use anonymized labels. Knowledge Atlas never changes note names 
 | Area | What it provides |
 |---|---|
 | Galaxy navigation | The vault is a star, top-level folders are planets, and second-level folders are moons. Node size reflects the amount of knowledge below it. |
-| Celestial motion | Smooth revolution and self-rotation, adjustable speed, hover-to-pause inspection, perspective orbits, atmospheric shading, rings, and a soft solar corona. |
+| Celestial motion | Mercury-to-Neptune period references with perceptual time compression, smooth revolution and self-rotation, adjustable speed, hover-to-pause inspection, atmospheric shading, rings, and a soft solar corona. |
 | Root-note comet | One root-level Markdown note becomes a comet. The selection is stable during the day and can rotate on another day; no special filename is required. |
+| Focused satellites | The overview shows at most three representative second-level folders per planet on one readable moon track; drill down to see the rest. |
 | Tree and drill-down views | Switch to a readable hierarchy, enter folders, inspect note nodes, and follow real links resolved by Obsidian. |
 | Search and recency | Search the full vault, open notes directly, and browse recently updated notes. |
 | Activity insights | A conventional 53-week heatmap, 12-month growth trajectory, weekday rhythm, local clock, and activity-aware calendar. |
@@ -60,7 +61,7 @@ The overview intentionally stops at the second folder level so a large vault rem
 
 ### Install the packaged version
 
-1. Download [`knowledge-atlas-1.10.0.zip`](releases/knowledge-atlas-1.10.0.zip).
+1. Download [`knowledge-atlas-1.11.0.zip`](releases/knowledge-atlas-1.11.0.zip).
 2. Extract it. The archive contains a folder named `knowledge-atlas`.
 3. Copy that folder into your vault:
 

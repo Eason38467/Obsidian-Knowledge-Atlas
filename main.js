@@ -10,7 +10,7 @@ const {
 const VIEW_TYPE = "knowledge-atlas-view";
 const ROOT_NOTES = "@root-notes";
 const SVG_NS = "http://www.w3.org/2000/svg";
-const GRAPH_WIDTH = 1200;
+const GRAPH_WIDTH = 1400;
 const GRAPH_HEIGHT = 1080;
 const GRAPH_CENTER_X = GRAPH_WIDTH / 2;
 const GRAPH_CENTER_Y = GRAPH_HEIGHT / 2;
@@ -32,6 +32,20 @@ const PLANET_PROFILES = [
   { surface: "#54a777", mid: "#286447", dark: "#09251c", atmosphere: "#7fffd0", texture: "#b8d774", accent: "#eaffc8", pattern: "terra", ring: false },
   { surface: "#d3ba55", mid: "#8e6c27", dark: "#2c1c08", atmosphere: "#fff09a", texture: "#f2d77a", accent: "#fff8c4", pattern: "storm", ring: false }
 ];
+const SOLAR_ORBIT_PROFILES = [
+  { reference: "Mercury", periodDays: 87.97 },
+  { reference: "Venus", periodDays: 224.7 },
+  { reference: "Earth", periodDays: 365.26 },
+  { reference: "Mars", periodDays: 686.98 },
+  { reference: "Jupiter", periodDays: 4332.59 },
+  { reference: "Saturn", periodDays: 10759.22 },
+  { reference: "Uranus", periodDays: 30688.5 },
+  { reference: "Neptune", periodDays: 60182 }
+];
+const OVERVIEW_MOONS_PER_PLANET = 3;
+const GALAXY_INNER_ORBIT = 170;
+const GALAXY_OUTER_ORBIT = 580;
+const GALAXY_MAX_ORBIT_GAP = 76;
 const FREE_LAYOUT_MIN_WIDTH = 1051;
 const DEFAULT_DASHBOARD_LAYOUT = {
   viewportWidth: 1500,
@@ -328,6 +342,19 @@ function planetProfile(path) {
   return PLANET_PROFILES[deterministicScore(`planet-profile:${path}`) % PLANET_PROFILES.length];
 }
 
+function solarOrbitProfile(index) {
+  if (index < SOLAR_ORBIT_PROFILES.length) return SOLAR_ORBIT_PROFILES[index];
+  const last = SOLAR_ORBIT_PROFILES.at(-1);
+  return {
+    reference: `Beyond Neptune ${index - SOLAR_ORBIT_PROFILES.length + 1}`,
+    periodDays: last.periodDays * Math.pow(1.85, index - SOLAR_ORBIT_PROFILES.length + 1)
+  };
+}
+
+function visualOrbitVelocity(periodDays) {
+  return clamp(Math.pow(SOLAR_ORBIT_PROFILES[2].periodDays / periodDays, .42), .055, 1.9);
+}
+
 function renderStarSphere(group, node, radius) {
   const token = `kap-star-${deterministicScore(node.id)}`;
   const auraId = `${token}-aura`;
@@ -442,7 +469,8 @@ function renderPlanetSphere(group, node, radius) {
   surface.style.fill = `url(#${gradientId})`;
   group.appendChild(surface);
 
-  const texture = createSvg("g", { class: `kap-planet-texture is-${profile.pattern}`, "clip-path": `url(#${clipId})` });
+  const textureClip = createSvg("g", { class: "kap-planet-texture-clip", "clip-path": `url(#${clipId})` });
+  const texture = createSvg("g", { class: `kap-planet-texture is-${profile.pattern}` });
   const bandCount = profile.pattern === "gas" ? 7 : profile.pattern === "storm" ? 5 : 3;
   for (let index = 0; index < bandCount; index += 1) {
     const y = (-.68 + index * (1.36 / Math.max(bandCount - 1, 1))) * radius;
@@ -479,7 +507,8 @@ function renderPlanetSphere(group, node, radius) {
     ry: radius * .12,
     fill: profile.accent
   }));
-  group.appendChild(texture);
+  textureClip.appendChild(texture);
+  group.appendChild(textureClip);
   group.appendChild(createSvg("ellipse", {
     class: "kap-planet-night",
     cx: radius * .58,
@@ -520,7 +549,8 @@ function renderMoonSphere(group, node, radius) {
   const surface = createSvg("circle", { class: "kap-core kap-celestial-sphere", r: radius });
   surface.style.fill = `url(#${gradientId})`;
   group.appendChild(surface);
-  const texture = createSvg("g", { class: "kap-moon-texture", "clip-path": `url(#${clipId})` });
+  const textureClip = createSvg("g", { class: "kap-moon-texture-clip", "clip-path": `url(#${clipId})` });
+  const texture = createSvg("g", { class: "kap-moon-texture" });
   for (let index = 0; index < 4; index += 1) {
     const seed = deterministicScore(`${node.path}:crater:${index}`);
     texture.appendChild(createSvg("circle", {
@@ -530,7 +560,8 @@ function renderMoonSphere(group, node, radius) {
       r: radius * (.1 + (seed % 18) / 100)
     }));
   }
-  group.appendChild(texture);
+  textureClip.appendChild(texture);
+  group.appendChild(textureClip);
   group.appendChild(createSvg("ellipse", { class: "kap-moon-night", cx: radius * .62, cy: radius * .08, rx: radius * .78, ry: radius * 1.08, "clip-path": `url(#${clipId})` }));
   group.appendChild(createSvg("circle", { class: "kap-moon-rim", r: radius + .35, fill: "none" }));
 }
@@ -1387,6 +1418,9 @@ class KnowledgeAtlasView extends ItemView {
 
   getGalaxyOverview() {
     const roots = [...this.model.roots].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+    const orbitGap = roots.length > 1
+      ? Math.min(GALAXY_MAX_ORBIT_GAP, (GALAXY_OUTER_ORBIT - GALAXY_INNER_ORBIT) / (roots.length - 1))
+      : 0;
     const center = {
       id: "center",
       type: "star",
@@ -1399,6 +1433,7 @@ class KnowledgeAtlasView extends ItemView {
     const planets = roots.map((folder, index) => {
       const mass = folder.count + folder.children.size * 6;
       const appearance = planetProfile(folder.path);
+      const orbitProfile = solarOrbitProfile(index);
       return {
         id: `folder:${folder.path}`,
         type: "planet",
@@ -1408,20 +1443,26 @@ class KnowledgeAtlasView extends ItemView {
         appearance,
         count: folder.count,
         radius: clamp(14 + Math.sqrt(Math.max(mass, 1)) * .82, 19, 40),
-        orbitRadius: 220 + index * 46,
-        orbitVelocity: 1,
+        orbitRadius: GALAXY_INNER_ORBIT + index * orbitGap,
+        orbitVelocity: visualOrbitVelocity(orbitProfile.periodDays),
+        orbitPeriodDays: orbitProfile.periodDays,
+        orbitReference: orbitProfile.reference,
         baseAngle: -Math.PI / 2 + (index / Math.max(roots.length, 1)) * Math.PI * 2,
         spinVelocity: .75 + (deterministicScore(`spin:${folder.path}`) % 110) / 100,
         detail: `${folder.count} ${this.copy.notes} · ${folder.children.size} ${this.copy.folders}`
       };
     });
-    const childQueues = roots.map(folder => ({
-      parent: folder,
-      children: [...folder.children]
+    const childQueues = roots.map(folder => {
+      const children = [...folder.children]
         .map(path => this.model.folders.get(path))
         .filter(Boolean)
-        .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
-    }));
+        .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+      return {
+        parent: folder,
+        totalChildren: children.length,
+        children: children.slice(0, OVERVIEW_MOONS_PER_PLANET)
+      };
+    });
     const selected = [];
     let round = 0;
     while (selected.length < this.plugin.settings.maxFolders) {
@@ -1438,17 +1479,14 @@ class KnowledgeAtlasView extends ItemView {
     const moonCountByParent = new Map();
     for (const { parent } of selected) moonCountByParent.set(parent.path, (moonCountByParent.get(parent.path) || 0) + 1);
     const moonOrderByParent = new Map();
+    const planetByPath = new Map(planets.map(planet => [planet.path, planet]));
     const moons = selected.map(({ folder, parent }) => {
       const mass = folder.count + folder.children.size * 4;
       const orbitSlot = moonOrderByParent.get(parent.path) || 0;
       moonOrderByParent.set(parent.path, orbitSlot + 1);
       const moonCount = moonCountByParent.get(parent.path) || 1;
-      const orbitRing = moonCount > 1 ? orbitSlot % 2 : 0;
-      const orbitIndex = Math.floor(orbitSlot / 2);
-      const orbitCount = moonCount > 1
-        ? orbitRing === 0 ? Math.ceil(moonCount / 2) : Math.floor(moonCount / 2)
-        : 1;
-      const ringOffset = (deterministicScore(`moon-ring:${parent.path}:${orbitRing}`) % 6283) / 1000;
+      const parentPlanet = planetByPath.get(parent.path);
+      const ringOffset = (deterministicScore(`moon-ring:${parent.path}`) % 6283) / 1000;
       return {
         id: `folder:${folder.path}`,
         type: "moon",
@@ -1457,13 +1495,14 @@ class KnowledgeAtlasView extends ItemView {
         parentId: `folder:${parent.path}`,
         color: stableColor(parent.path),
         count: folder.count,
-        radius: clamp(5.5 + Math.sqrt(Math.max(mass, 1)) * .42, 7, 15),
+        radius: clamp(5.5 + Math.sqrt(Math.max(mass, 1)) * .38, 7, 12),
         orbitSlot,
-        orbitRing,
-        orbitIndex,
-        orbitCount,
-        orbitVelocity: orbitRing === 0 ? 1.5 : -1.18,
-        baseAngle: ringOffset + (orbitIndex / Math.max(orbitCount, 1)) * Math.PI * 2,
+        orbitRing: 0,
+        orbitIndex: orbitSlot,
+        orbitCount: moonCount,
+        orbitRadius: (parentPlanet?.radius || 24) + 54,
+        orbitVelocity: 1.28 + (deterministicScore(`moon-orbit:${parent.path}`) % 42) / 100,
+        baseAngle: ringOffset + (orbitSlot / Math.max(moonCount, 1)) * Math.PI * 2,
         spinVelocity: 1.4 + (deterministicScore(`moon-spin:${folder.path}`) % 120) / 100,
         detail: `${folder.count} ${this.copy.notes} · ${folder.children.size} ${this.copy.folders}`
       };
@@ -1476,7 +1515,7 @@ class KnowledgeAtlasView extends ItemView {
       color: "#f4f0ff",
       file: this.model.cometFile,
       radius: 8,
-      orbitRadius: 536,
+      orbitRadius: 650,
       orbitVelocity: 1.62,
       baseAngle: 3.85,
       spinVelocity: 2.4,
@@ -1486,7 +1525,7 @@ class KnowledgeAtlasView extends ItemView {
       ...planets.map(node => ({ source: "center", target: node.id, type: "orbit", color: node.color })),
       ...moons.map(node => ({ source: node.parentId, target: node.id, type: "satellite", color: node.color }))
     ];
-    const availableMoonCount = childQueues.reduce((sum, queue) => sum + queue.children.length, 0);
+    const availableMoonCount = childQueues.reduce((sum, queue) => sum + queue.totalChildren, 0);
     return {
       overview: true,
       nodes: [center, ...planets, ...moons, ...(comet ? [comet] : [])],
@@ -1603,7 +1642,7 @@ class KnowledgeAtlasView extends ItemView {
       const planet = positions.get(moon.parentId);
       const planetNode = planets.find(item => item.id === moon.parentId);
       if (!planet || !planetNode) continue;
-      const localRadius = (planetNode.radius || 24) + 48 + (moon.orbitRing || 0) * 34;
+      const localRadius = moon.orbitRadius || (planetNode.radius || 24) + 54;
       const angle = moon.baseAngle + phase * moon.orbitVelocity;
       const projected = projectOrbit(localRadius, angle, .58, -.28);
       const depth = planet.depth * .72 + projected.depth * .28;
@@ -1707,7 +1746,8 @@ class KnowledgeAtlasView extends ItemView {
     return positions;
   }
 
-  curvePath(source, target) {
+  curvePath(source, target, edgeType = "tree") {
+    if (edgeType === "satellite") return `M ${source.x} ${source.y} L ${target.x} ${target.y}`;
     if (this.currentLayout === "tree") {
       const middle = (source.x + target.x) / 2;
       return `M ${source.x} ${source.y} C ${middle} ${source.y}, ${middle} ${target.y}, ${target.x} ${target.y}`;
@@ -1719,9 +1759,9 @@ class KnowledgeAtlasView extends ItemView {
 
   renderStarfield(parent) {
     const layer = createSvg("g", { class: "kap-starfield", "aria-hidden": "true" });
-    for (let index = 0; index < 88; index += 1) {
-      const x = 22 + (deterministicScore(`star-x:${index}`) % 115600) / 100;
-      const y = 20 + (deterministicScore(`star-y:${index}`) % 104000) / 100;
+    for (let index = 0; index < 96; index += 1) {
+      const x = 22 + (deterministicScore(`star-x:${index}`) % ((GRAPH_WIDTH - 44) * 100)) / 100;
+      const y = 20 + (deterministicScore(`star-y:${index}`) % ((GRAPH_HEIGHT - 40) * 100)) / 100;
       const radius = .45 + (deterministicScore(`star-r:${index}`) % 150) / 100;
       const star = createSvg("circle", { cx: x, cy: y, r: radius, class: `kap-space-star is-${index % 3}` });
       star.style.animationDelay = `${-(index % 17) * .37}s`;
@@ -1736,14 +1776,14 @@ class KnowledgeAtlasView extends ItemView {
     scenery.appendChild(createSvg("ellipse", {
       cx: GRAPH_CENTER_X,
       cy: GRAPH_CENTER_Y,
-      rx: 536,
-      ry: 279,
+      rx: 650,
+      ry: 338,
       transform: `rotate(-9 ${GRAPH_CENTER_X} ${GRAPH_CENTER_Y})`,
       class: "kap-galaxy-disk"
     }));
     for (let index = 0; index < 24; index += 1) {
       const angle = (index / 24) * Math.PI * 2;
-      const point = projectOrbit(536, angle);
+      const point = projectOrbit(650, angle);
       scenery.appendChild(createSvg("line", {
         x1: GRAPH_CENTER_X,
         y1: GRAPH_CENTER_Y,
@@ -1765,30 +1805,27 @@ class KnowledgeAtlasView extends ItemView {
     for (const planet of data.nodes.filter(node => node.type === "planet")) {
       const position = positions.get(planet.id);
       if (!position) continue;
-      const moonCount = data.nodes.filter(node => node.type === "moon" && node.parentId === planet.id).length;
-      if (!moonCount) continue;
-      const rings = moonCount > 1 ? 2 : 1;
+      const planetMoons = data.nodes.filter(node => node.type === "moon" && node.parentId === planet.id);
+      if (!planetMoons.length) continue;
       const elements = [];
-      for (let ring = 0; ring < rings; ring += 1) {
-        const orbitRadius = (planet.radius || 24) + 48 + ring * 34;
-        const ellipse = createSvg("ellipse", {
-          cx: position.x,
-          cy: position.y,
-          rx: orbitRadius,
-          ry: orbitRadius * .58,
-          transform: `rotate(-16 ${position.x} ${position.y})`,
-          class: "kap-moon-orbit"
-        });
-        scenery.appendChild(ellipse);
-        elements.push(ellipse);
-      }
+      const orbitRadius = planetMoons[0].orbitRadius || (planet.radius || 24) + 54;
+      const ellipse = createSvg("ellipse", {
+        cx: position.x,
+        cy: position.y,
+        rx: orbitRadius,
+        ry: orbitRadius * .58,
+        transform: `rotate(-16 ${position.x} ${position.y})`,
+        class: "kap-moon-orbit"
+      });
+      scenery.appendChild(ellipse);
+      elements.push(ellipse);
       this.moonOrbitElements.set(planet.id, elements);
     }
     scenery.appendChild(createSvg("ellipse", {
       cx: GRAPH_CENTER_X,
       cy: GRAPH_CENTER_Y,
-      rx: 536,
-      ry: 289,
+      rx: 650,
+      ry: 351,
       transform: `rotate(-9 ${GRAPH_CENTER_X} ${GRAPH_CENTER_Y})`,
       class: "kap-comet-orbit"
     }));
@@ -1828,7 +1865,7 @@ class KnowledgeAtlasView extends ItemView {
       const target = positions.get(edge.target);
       if (!source || !target) continue;
       const path = createSvg("path", {
-        d: this.curvePath(source, target),
+        d: this.curvePath(source, target, edge.type),
         fill: "none",
         class: `kap-edge is-${edge.type}${edge.type === "cross" ? " is-cross" : ""}`,
         "data-source": edge.source,
@@ -2067,7 +2104,7 @@ class KnowledgeAtlasView extends ItemView {
       for (const { edge, path } of edgeElements) {
         const source = positions.get(edge.source);
         const target = positions.get(edge.target);
-        if (source && target) path.setAttribute("d", this.curvePath(source, target));
+        if (source && target) path.setAttribute("d", this.curvePath(source, target, edge.type));
       }
       for (const [planetId, ellipses] of this.moonOrbitElements || []) {
         const position = positions.get(planetId);
@@ -2109,7 +2146,7 @@ class KnowledgeAtlasView extends ItemView {
       }
       const elapsed = Math.min(.05, Math.max(0, (timestamp - this.motionLastTime) / 1000));
       this.motionLastTime = timestamp;
-      this.orbitPhase = (this.orbitPhase + elapsed * .22 * Number(this.plugin.settings.orbitSpeed || 1)) % (Math.PI * 2);
+      this.orbitPhase += elapsed * .22 * Number(this.plugin.settings.orbitSpeed || 1);
       this.updateGalaxyMotion(timestamp);
       this.motionFrame = window.requestAnimationFrame(tick);
     };

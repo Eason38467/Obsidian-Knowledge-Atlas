@@ -4,7 +4,7 @@
 
 **把 Obsidian Vault 变成一座可探索、会运转的知识星系。**
 
-[![Version](https://img.shields.io/badge/version-1.10.0-8b5cf6?style=flat-square)](releases/knowledge-atlas-1.10.0.zip)
+[![Version](https://img.shields.io/badge/version-1.11.0-8b5cf6?style=flat-square)](releases/knowledge-atlas-1.11.0.zip)
 [![Obsidian](https://img.shields.io/badge/Obsidian-1.5.0%2B-7c3aed?style=flat-square&logo=obsidian)](https://obsidian.md/)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)](LICENSE)
 [![Local only](https://img.shields.io/badge/data-local%20only-06b6d4?style=flat-square)](#隐私)
@@ -34,8 +34,9 @@ Knowledge Atlas 是一款面向 [Obsidian](https://obsidian.md/) 的可视化导
 | 模块 | 功能 |
 |---|---|
 | 星系导航 | Vault 是恒星，一级目录是行星，二级目录是卫星；节点体积会反映其下方的知识数量。 |
-| 天体动画 | 流畅公转和自转、速率调节、悬停暂停、透视轨道、球面明暗、大气层、星环和自然日冕。 |
+| 天体动画 | 参考水星至海王星的真实周期并进行视觉时间压缩，支持流畅公转和自转、速率调节、悬停暂停、球面明暗、大气层、星环和自然日冕。 |
 | 根目录彗星 | 每天稳定随机选择一篇根目录 Markdown 笔记作为彗星，不依赖任何固定文件名。 |
+| 精简卫星 | 总览中每颗行星最多显示 3 个代表性二级目录，并合并为一条清晰的卫星轨道；其余目录可下钻查看。 |
 | 树状与下钻 | 切换为清晰的层级树，进入目录、查看笔记节点，并展示 Obsidian 解析出的真实双链。 |
 | 搜索与最近更新 | 全 Vault 搜索、直接打开笔记，以及浏览最近修改的笔记。 |
 | 活跃度洞察 | 53 周热力图、12 个月增长轨迹、星期节奏、本地时钟和带活跃标记的日历。 |
@@ -60,7 +61,7 @@ Vault                         → 恒星
 
 ### 安装打包版本
 
-1. 下载 [`knowledge-atlas-1.10.0.zip`](releases/knowledge-atlas-1.10.0.zip)。
+1. 下载 [`knowledge-atlas-1.11.0.zip`](releases/knowledge-atlas-1.11.0.zip)。
 2. 解压后会得到 `knowledge-atlas` 文件夹。
 3. 将该文件夹复制到 Vault：
 

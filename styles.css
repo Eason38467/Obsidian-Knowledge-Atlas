@@ -710,7 +710,9 @@
   filter: drop-shadow(0 0 3px color-mix(in srgb, var(--kap-node-color) 72%, transparent));
 }
 
+.kap-planet-texture-clip,
 .kap-planet-texture,
+.kap-moon-texture-clip,
 .kap-moon-texture,
 .kap-planet-night,
 .kap-moon-night,
