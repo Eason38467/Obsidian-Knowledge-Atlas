@@ -1,0 +1,10 @@
+{
+  "id": "knowledge-atlas",
+  "name": "Knowledge Atlas",
+  "version": "1.10.0",
+  "minAppVersion": "1.5.0",
+  "description": "Explore every Markdown note in your vault as an interactive, searchable knowledge map.",
+  "author": "Eason38467",
+  "authorUrl": "https://github.com/Eason38467",
+  "isDesktopOnly": false
+}
